@@ -1,0 +1,126 @@
+# GitHub Release Workflow
+# Automatically creates and publishes releases when version tags are pushed
+
+name: Create Release Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., 1.0.0)'
+        required: true
+        default: '1.0.0'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm install --only=dev
+        
+    - name: Create release packages
+      run: |
+        npm run create-package
+        
+    - name: Get version from tag or input
+      id: get_version
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+        else
+          echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ steps.get_version.outputs.version }}
+        release_name: WordPress Image Optimization Plugin v${{ steps.get_version.outputs.version }}
+        body: |
+          ## 🚀 WordPress Image Optimization Plugin v${{ steps.get_version.outputs.version }}
+          
+          ### 🌟 Features
+          - **Manual Image Optimization** - Full control without server overload
+          - **WebP/AVIF Conversion** - Modern format support with fallback
+          - **Vietnamese Language Priority** - Vietnamese-first interface
+          - **Real-time Progress Tracking** - Live optimization monitoring
+          - **LiteSpeed Cache Integration** - Optimized performance
+          
+          ### 📦 Installation
+          1. Download the WordPress.org package below
+          2. Upload to WordPress Admin → Plugins → Add New → Upload Plugin
+          3. Activate and navigate to Image Optimization in admin menu
+          
+          ### 🔧 System Requirements
+          - WordPress 5.0+
+          - PHP 7.4+
+          - Imagick or GD extension
+          
+          ### 📋 Package Types
+          - **WordPress.org Package**: Ready for WordPress.org submission
+          - **GitHub Release Package**: Complete with documentation
+          - **Development Package**: Full source code for developers
+          
+          ### 🤝 Support
+          - **Documentation**: [Wiki](https://github.com/hienhoceo-dpsmedia/wordpress-image-optimization-plugin/wiki)
+          - **Issues**: [GitHub Issues](https://github.com/hienhoceo-dpsmedia/wordpress-image-optimization-plugin/issues)
+          - **Email**: hello@dps.media
+          - **Website**: [dps.media](https://dps.media)
+        draft: false
+        prerelease: false
+        
+    - name: Upload WordPress.org Package
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./releases/wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-wordpress-org.zip
+        asset_name: wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-wordpress-org.zip
+        asset_content_type: application/zip
+        
+    - name: Upload GitHub Release Package
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./releases/wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-github-release.zip
+        asset_name: wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-github-release.zip
+        asset_content_type: application/zip
+        
+    - name: Upload Development Package
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./releases/wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-development.zip
+        asset_name: wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-development.zip
+        asset_content_type: application/zip
+        
+    - name: Upload Package Information
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./releases/package-info-v${{ steps.get_version.outputs.version }}.json
+        asset_name: package-info-v${{ steps.get_version.outputs.version }}.json
+        asset_content_type: application/json
