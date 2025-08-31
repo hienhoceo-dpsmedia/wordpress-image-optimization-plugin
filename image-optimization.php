@@ -85,6 +85,11 @@ class Image_Optimization {
         
         // Set Vietnamese as preferred language for this plugin
         add_filter( 'plugin_locale', array( $this, 'set_plugin_locale' ), 10, 2 );
+        
+        // Add update notification system
+        add_action( 'admin_init', array( $this, 'check_plugin_updates' ) );
+        add_action( 'admin_notices', array( $this, 'show_update_notice' ) );
+        add_action( 'wp_ajax_image_optimization_dismiss_update', array( $this, 'dismiss_update_notice' ) );
     }
 
     /**
@@ -344,7 +349,58 @@ class Image_Optimization {
             'Image Optimization requires WordPress 5.0+ and PHP 7.4+' => 'Tối Ưu Hình Ảnh yêu cầu WordPress 5.0+ và PHP 7.4+',
             'Plugin Activation Error' => 'Lỗi Kích Hoạt Plugin',
             
-            // Admin interface
+            // Manual Control Center - Missing from screenshot
+            'Manual Control Center' => 'Trung Tâm Điều Khiển Thủ Công',
+            'Advanced manual controls for power users. Use these tools for detailed control over the optimization process.' => 'Các điều khiển thủ công nâng cao dành cho người dùng chuyên nghiệp. Sử dụng các công cụ này để kiểm soát chi tiết quá trình tối ưu hóa.',
+            
+            // Step-by-Step Process
+            'Step-by-Step Process:' => 'Quy Trình Từng Bước:',
+            'Scan' => 'Quét',
+            'Scan Images' => 'Quét Hình Ảnh',
+            'Convert' => 'Chuyển Đổi',
+            'Convert Pending' => 'Chuyển Đổi Đang Chờ',
+            'Manage' => 'Quản Lý',
+            'Remove All WebP' => 'Xóa Tất Cả WebP',
+            
+            // Export Reports
+            'Export Reports:' => 'Xuất Báo Cáo:',
+            'Export JSON' => 'Xuất JSON',
+            'Export CSV' => 'Xuất CSV',
+            
+            // Statistics labels
+            'Total JPG/PNG:' => 'Tổng JPG/PNG:',
+            'Already converted:' => 'Đã chuyển đổi:',
+            'Pending:' => 'Đang chờ:',
+            'Ignored:' => 'Bỏ qua:',
+            
+            // Quick Help Section - Missing from screenshot
+            'Quick Help' => 'Trợ Giúp Nhanh',
+            'New User?' => 'Người Dùng Mới?',
+            'Just click the big "Start Complete Optimization" button above. It will handle everything automatically - scan, convert, add .htaccess rules, and show LiteSpeed Cache recommendations!' => 'Chỉ cần nhấp vào nút lớn "Bắt Đầu Tối Ưu Hoàn Chỉnh" ở trên. Nó sẽ xử lý mọi thứ tự động - quét, chuyển đổi, thêm quy tắc .htaccess và hiển thị khuyến nghị LiteSpeed Cache!',
+            'What are WebP/AVIF?' => 'WebP/AVIF là gì?',
+            'WebP and AVIF are modern image formats that reduce file sizes by 25-50% without losing quality. Faster loading = better SEO!' => 'WebP và AVIF là các định dạng hình ảnh hiện đại giảm kích thước file 25-50% mà không mất chất lượng. Tải nhanh hơn = SEO tốt hơn!',
+            'Need Settings?' => 'Cần Cài Đặt?',
+            'Default settings work great for most sites. Only change if you know what you\'re doing.' => 'Cài đặt mặc định hoạt động tốt cho hầu hết các trang web. Chỉ thay đổi nếu bạn biết mình đang làm gì.',
+            'Is it Safe?' => 'Có An Toàn Không?',
+            'Yes! Your original images are never deleted. WebP/AVIF copies are created alongside them.' => 'Có! Hình ảnh gốc của bạn không bao giờ bị xóa. Các bản sao WebP/AVIF được tạo cùng với chúng.',
+            
+            // Image Information Widget
+            'Image Information' => 'Thông Tin Hình Ảnh',
+            'Total Images:' => 'Tổng Số Hình Ảnh:',
+            'Optimized:' => 'Đã Tối Ưu:',
+            'Pending:' => 'Đang Chờ:',
+            
+            // Optimization Summary
+            'Optimization Summary' => 'Tóm Tắt Tối Ưu Hóa',
+            'images optimized' => 'hình ảnh đã tối ưu hóa',
+            'Space saved:' => 'Dung lượng tiết kiệm:',
+            'MB' => 'MB',
+            
+            // .htaccess section buttons
+            'Remove .htaccess Rules' => 'Xóa Quy Tắc .htaccess',
+            'Preview Rules' => 'Xem Trước Quy Tắc',
+            
+            // Admin interface - Fixed Save Settings
             'Save Settings' => 'Lưu Cài Đặt',
             'Reset to Defaults' => 'Đặt Lại Mặc Định',
             'Export Report' => 'Xuất Báo Cáo',
@@ -486,6 +542,160 @@ class Image_Optimization {
             version_compare( $wp_version, '5.0', '>=' ) &&
             version_compare( PHP_VERSION, '7.4', '>=' )
         );
+    }
+    
+    /**
+     * Check for plugin updates and store update information
+     *
+     * @since 1.0.8
+     */
+    public function check_plugin_updates() {
+        // Only check on plugin admin pages
+        if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+            return;
+        }
+        
+        $current_screen = get_current_screen();
+        if ( ! $current_screen || strpos( $current_screen->id, 'image-optimization' ) === false ) {
+            return;
+        }
+        
+        // Check for updates once per day
+        $last_check = get_transient( 'image_optimization_update_check' );
+        if ( $last_check ) {
+            return;
+        }
+        
+        // Set transient for 24 hours
+        set_transient( 'image_optimization_update_check', time(), DAY_IN_SECONDS );
+        
+        // Simulate update check - in real implementation, check against GitHub API
+        $current_version = IMAGE_OPTIMIZATION_VERSION;
+        $latest_version = $this->get_latest_version_from_github();
+        
+        if ( version_compare( $latest_version, $current_version, '>' ) ) {
+            set_transient( 'image_optimization_update_available', array(
+                'current_version' => $current_version,
+                'latest_version' => $latest_version,
+                'download_url' => 'https://github.com/hienhoceo-dpsmedia/wordpress-image-optimization-plugin/releases/latest'
+            ), WEEK_IN_SECONDS );
+        }
+    }
+    
+    /**
+     * Get latest version from GitHub releases
+     *
+     * @since 1.0.8
+     * @return string
+     */
+    private function get_latest_version_from_github() {
+        $api_url = 'https://api.github.com/repos/hienhoceo-dpsmedia/wordpress-image-optimization-plugin/releases/latest';
+        
+        $response = wp_remote_get( $api_url, array(
+            'timeout' => 10,
+            'headers' => array(
+                'User-Agent' => 'WordPress-Image-Optimization-Plugin/' . IMAGE_OPTIMIZATION_VERSION
+            )
+        ) );
+        
+        if ( is_wp_error( $response ) ) {
+            return IMAGE_OPTIMIZATION_VERSION; // Return current version if API fails
+        }
+        
+        $body = wp_remote_retrieve_body( $response );
+        $data = json_decode( $body, true );
+        
+        if ( isset( $data['tag_name'] ) ) {
+            return ltrim( $data['tag_name'], 'v' ); // Remove 'v' prefix from tag
+        }
+        
+        return IMAGE_OPTIMIZATION_VERSION;
+    }
+    
+    /**
+     * Show update notice to administrators
+     *
+     * @since 1.0.8
+     */
+    public function show_update_notice() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            return;
+        }
+        
+        $update_info = get_transient( 'image_optimization_update_available' );
+        if ( ! $update_info ) {
+            return;
+        }
+        
+        // Only show on plugin pages
+        $current_screen = get_current_screen();
+        if ( ! $current_screen || strpos( $current_screen->id, 'image-optimization' ) === false ) {
+            return;
+        }
+        
+        $current_version = $update_info['current_version'];
+        $latest_version = $update_info['latest_version'];
+        $download_url = $update_info['download_url'];
+        
+        $is_vietnamese = ( get_user_meta( get_current_user_id(), 'image_optimization_language', true ) === 'vi_VN' ||
+                          get_option( 'image_optimization_language', '' ) === 'vi_VN' ||
+                          in_array( get_locale(), array( 'vi_VN', 'vi', '' ), true ) );
+        
+        if ( $is_vietnamese ) {
+            $title = '🎉 Cập Nhật Mới Có Sẵn!';
+            $message = sprintf(
+                'Phiên bản mới của plugin Tối Ưu Hình Ảnh PageSpeed đã có sẵn! Phiên bản hiện tại: <strong>%s</strong> → Phiên bản mới: <strong>%s</strong>',
+                $current_version,
+                $latest_version
+            );
+            $download_text = 'Tải Về Phiên Bản Mới';
+            $dismiss_text = 'Ẩn Thông Báo';
+        } else {
+            $title = '🎉 Update Available!';
+            $message = sprintf(
+                'A new version of Image Optimization PageSpeed plugin is available! Current version: <strong>%s</strong> → New version: <strong>%s</strong>',
+                $current_version,
+                $latest_version
+            );
+            $download_text = 'Download New Version';
+            $dismiss_text = 'Dismiss Notice';
+        }
+        
+        echo '<div class="notice notice-info is-dismissible" id="image-optimization-update-notice">';
+        echo '<h3>' . esc_html( $title ) . '</h3>';
+        echo '<p>' . wp_kses_post( $message ) . '</p>';
+        echo '<p>';
+        echo '<a href="' . esc_url( $download_url ) . '" class="button button-primary" target="_blank">' . esc_html( $download_text ) . '</a> ';
+        echo '<a href="#" class="button" onclick="imageOptimizationDismissUpdate(); return false;">' . esc_html( $dismiss_text ) . '</a>';
+        echo '</p>';
+        echo '</div>';
+        
+        // Add JavaScript for dismiss functionality
+        echo '<script>
+        function imageOptimizationDismissUpdate() {
+            fetch(ajaxurl, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "action=image_optimization_dismiss_update&nonce=' . wp_create_nonce( 'image_optimization_dismiss_update' ) . '"
+            }).then(() => {
+                document.getElementById("image-optimization-update-notice").style.display = "none";
+            });
+        }
+        </script>';
+    }
+    
+    /**
+     * Dismiss update notice
+     *
+     * @since 1.0.8
+     */
+    public function dismiss_update_notice() {
+        if ( ! current_user_can( 'manage_options' ) || ! wp_verify_nonce( $_POST['nonce'], 'image_optimization_dismiss_update' ) ) {
+            wp_die( 'Unauthorized' );
+        }
+        
+        delete_transient( 'image_optimization_update_available' );
+        wp_die(); // Proper AJAX response
     }
 }
 
