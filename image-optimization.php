@@ -244,6 +244,64 @@ class Image_Optimization {
             'Minimum Width (pixels)' => 'Chiều Rộng Tối Thiểu (pixel)',
             'Minimum Height (pixels)' => 'Chiều Cao Tối Thiểu (pixel)',
             'Minimum File Size (KB)' => 'Kích Thước File Tối Thiểu (KB)',
+            'Force include small images' => 'Bắt buộc bao gồm hình ảnh nhỏ',
+            'Ignore thresholds when scanning/converting' => 'Bỏ qua ngưỡng khi quét/chuyển đổi',
+            
+            // Output Format Selection - Missing from screenshot
+            'Output Format Selection' => 'Lựa Chọn Định Dạng Đầu Ra',
+            'Choose which next-generation image formats to convert your images to. The selection depends on your server capabilities and browser support.' => 'Chọn định dạng hình ảnh thế hệ mới nào để chuyển đổi hình ảnh của bạn. Lựa chọn phụ thuộc vào khả năng máy chủ và hỗ trợ trình duyệt.',
+            'Server Conversion Capabilities' => 'Khả Năng Chuyển Đổi Máy Chủ',
+            'ImageMagick Extension' => 'Tiện Ích ImageMagick',
+            'GD Extension' => 'Tiện Ích GD',
+            'Available' => 'Có Sẵn',
+            'Not Available' => 'Không Có Sẵn',
+            'WebP Support' => 'Hỗ Trợ WebP',
+            'AVIF Support' => 'Hỗ Trợ AVIF',
+            'AVIF Support (Not Available in GD)' => 'Hỗ Trợ AVIF (Không Có Sẵn trong GD)',
+            'No Image Conversion Library Available!' => 'Không Có Thư Viện Chuyển Đổi Hình Ảnh Nào!',
+            'Neither ImageMagick nor GD extension is available on your server. Please contact your hosting provider to install one of these extensions.' => 'Cả ImageMagick và tiện ích GD đều không có sẵn trên máy chủ của bạn. Vui lòng liên hệ nhà cung cấp hosting để cài đặt một trong những tiện ích này.',
+            
+            // Format options from screenshot
+            'Output Format' => 'Định Dạng Đầu Ra',
+            'Choose which modern image format(s) to convert your images to. AVIF provides better compression but requires ImageMagick with AVIF support.' => 'Chọn định dạng hình ảnh hiện đại nào để chuyển đổi hình ảnh của bạn. AVIF cung cấp nén tốt hơn nhưng yêu cầu ImageMagick có hỗ trợ AVIF.',
+            'WebP Only' => 'Chỉ WebP',
+            'Convert images to WebP format only. Best compatibility, supported by most modern browsers and servers.' => 'Chuyển đổi hình ảnh chỉ sang định dạng WebP. Tương thích tốt nhất, được hỗ trợ bởi hầu hết trình duyệt và máy chủ hiện đại.',
+            'AVIF Only' => 'Chỉ AVIF',
+            'Convert images to AVIF format only. Better compression than WebP but requires ImageMagick with AVIF support.' => 'Chuyển đổi hình ảnh chỉ sang định dạng AVIF. Nén tốt hơn WebP nhưng yêu cầu ImageMagick có hỗ trợ AVIF.',
+            'Requires ImageMagick with AVIF support. Contact your hosting provider.' => 'Yêu cầu ImageMagick có hỗ trợ AVIF. Liên hệ nhà cung cấp hosting của bạn.',
+            'Both WebP and AVIF' => 'Cả WebP và AVIF',
+            'Fully Available' => 'Hoàn Toàn Có Sẵn',
+            'WebP Only (AVIF not available)' => 'Chỉ WebP (AVIF không có sẵn)',
+            'Convert to both formats for maximum compatibility and performance. Browsers will automatically choose the best supported format.' => 'Chuyển đổi sang cả hai định dạng để có tương thích và hiệu suất tối đa. Trình duyệt sẽ tự động chọn định dạng được hỗ trợ tốt nhất.',
+            'Note: Only WebP will be generated since AVIF is not available on your server.' => 'Lưu ý: Chỉ WebP sẽ được tạo vì AVIF không có sẵn trên máy chủ của bạn.',
+            
+            // WebP/AVIF Serving Options - Missing from screenshot  
+            'WebP/AVIF Serving Options' => 'Tùy Chọn Phục Vụ WebP/AVIF',
+            'LiteSpeed Cache Detected:' => 'Đã Phát Hiện LiteSpeed Cache:',
+            'You have multiple options to serve WebP/AVIF images. Choose the method that works best for your setup:' => 'Bạn có nhiều tùy chọn để phục vụ hình ảnh WebP/AVIF. Chọn phương thức phù hợp nhất với thiết lập của bạn:',
+            'Option 1 (Recommended):' => 'Tùy Chọn 1 (Khuyến Nghị):',
+            'Use LiteSpeed Cache WebP replacement feature' => 'Sử dụng tính năng thay thế WebP của LiteSpeed Cache',
+            'Option 2:' => 'Tùy Chọn 2:',
+            'Use .htaccess rules below for direct server-level serving' => 'Sử dụng quy tắc .htaccess bên dưới để phục vụ trực tiếp ở cấp máy chủ',
+            'Option 3:' => 'Tùy Chọn 3:',
+            'Use URL replacement below for PHP-level serving' => 'Sử dụng thay thế URL bên dưới để phục vụ ở cấp PHP',
+            'No LiteSpeed Cache Detected:' => 'Không Phát Hiện LiteSpeed Cache:',
+            'Use the options below to serve WebP/AVIF images to your visitors:' => 'Sử dụng các tùy chọn bên dưới để phục vụ hình ảnh WebP/AVIF cho khách truy cập của bạn:',
+            
+            // URL Replacement Method - Missing from screenshot
+            'URL Replacement Method' => 'Phương Thức Thay Thế URL',
+            'Enable URL Replacement' => 'Bật Thay Thế URL',
+            'Replace image URLs with WebP/AVIF versions in your site\'s HTML' => 'Thay thế URL hình ảnh bằng phiên bản WebP/AVIF trong HTML của trang web',
+            'This option replaces image URLs in HTML output with WebP/AVIF versions when available. For better performance, consider using .htaccess rules below.' => 'Tùy chọn này thay thế URL hình ảnh trong đầu ra HTML bằng phiên bản WebP/AVIF khi có sẵn. Để có hiệu suất tốt hơn, hãy xem xét sử dụng quy tắc .htaccess bên dưới.',
+            'Note: .htaccess rules below provide better performance by serving WebP content while keeping original URLs and proper Content-Type headers.' => 'Lưu ý: Quy tắc .htaccess bên dưới cung cấp hiệu suất tốt hơn bằng cách phục vụ nội dung WebP trong khi giữ URL gốc và tiêu đề Content-Type phù hợp.',
+            
+            // .htaccess Rules Method - Missing from screenshot
+            '.htaccess Rules Method' => 'Phương Thức Quy Tắc .htaccess',
+            'Add .htaccess Rules' => 'Thêm Quy Tắc .htaccess',
+            'Automatically detect and serve WebP/AVIF to supported browsers' => 'Tự động phát hiện và phục vụ WebP/AVIF cho trình duyệt được hỗ trợ',
+            'This adds rules to your .htaccess file to automatically serve WebP/AVIF versions when available and supported by the visitor\'s browser.' => 'Điều này thêm quy tắc vào tập tin .htaccess của bạn để tự động phục vụ phiên bản WebP/AVIF khi có sẵn và được hỗ trợ bởi trình duyệt của khách truy cập.',
+            'This method provides the best performance and is recommended for most users.' => 'Phương thức này cung cấp hiệu suất tốt nhất và được khuyến nghị cho hầu hết người dùng.',
+            'Warning: Make sure to backup your .htaccess file before enabling this option.' => 'Cảnh báo: Đảm bảo sao lưu tập tin .htaccess của bạn trước khi bật tùy chọn này.',
             
             // WebP serving methods
             'WebP Serving Method' => 'Phương Thức Phục Vụ WebP',
@@ -293,6 +351,14 @@ class Image_Optimization {
             'Clear All Optimized Images' => 'Xóa Tất Cả Hình Ảnh Đã Tối Ưu',
             'Settings saved successfully' => 'Cài đặt đã được lưu thành công',
             'Settings reset to default values' => 'Cài đặt đã được đặt lại về giá trị mặc định',
+            
+            // Additional missing strings from the interface
+            'conversion quality' => 'chất lượng chuyển đổi',
+            'Recommended: 80. Higher values = better quality but larger files. Lower values = smaller files but reduced quality.' => 'Khuyến nghị: 80. Giá trị cao hơn = chất lượng tốt hơn nhưng file lớn hơn. Giá trị thấp hơn = file nhỏ hơn nhưng chất lượng giảm.',
+            '0–100, default 80' => '0–100, mặc định 80',
+            'Min width (px)' => 'Chiều rộng tối thiểu (px)',
+            'Min height (px)' => 'Chiều cao tối thiểu (px)',
+            'Min file size (KB)' => 'Kích thước file tối thiểu (KB)',
         );
         
         // Add filter to override translations immediately
