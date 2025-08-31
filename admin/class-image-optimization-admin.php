@@ -46,6 +46,9 @@ class Image_Optimization_Admin {
      */
     private function __construct() {
         $this->init_hooks();
+        
+        // Load Vietnamese translations immediately for admin area
+        add_action( 'admin_init', array( $this, 'ensure_vietnamese_language' ) );
     }
 
     /**
@@ -902,7 +905,8 @@ class Image_Optimization_Admin {
         // Load the correct translations
         if ( $locale === 'vi_VN' ) {
             // Load Vietnamese translations or use fallbacks
-            $this->load_vietnamese_fallbacks();
+            $main_plugin = Image_Optimization::get_instance();
+            $main_plugin->load_vietnamese_fallbacks();
         }
         
         wp_send_json_success( array(
@@ -912,31 +916,31 @@ class Image_Optimization_Admin {
     }
     
     /**
-     * Load Vietnamese text fallbacks when .mo file is not available
+     * Ensure Vietnamese language is loaded for the plugin
      */
-    private function load_vietnamese_fallbacks() {
-        // Define key Vietnamese translations as fallbacks
-        $vietnamese_texts = array(
-            'Language:' => 'Ngôn ngữ:',
-            'Improve Image Delivery PageSpeed' => 'Cải Thiện Tốc Độ Tải Hình Ảnh PageSpeed',
-            'Boost Your PageSpeed Insights Score & Core Web Vitals' => 'Tăng Điểm PageSpeed Insights & Core Web Vitals',
-            'Start Complete Optimization' => 'Bắt Đầu Tối Ưu Hoàn Chỉnh',
-            'Quick PageSpeed Optimization - 3 Steps' => 'Tối Ưu PageSpeed Nhanh - 3 Bước',
-            'Scan for Optimization Opportunities' => 'Quét Tìm Cơ Hội Tối Ưu',
-            'Convert to Modern Formats' => 'Chuyển Đổi Sang Định Dạng Hiện Đại',
-            'Automatic Performance Setup' => 'Thiết Lập Hiệu Suất Tự Động',
-            'Total Images' => 'Tổng Số Hình Ảnh',
-            'Optimized' => 'Đã Tối Ưu',
-            'Pending' => 'Đang Chờ',
-            'Space Saved' => 'Dung Lượng Tiết Kiệm',
-        );
+    public function ensure_vietnamese_language() {
+        // Check if we're on the plugin's admin page
+        $screen = get_current_screen();
+        if ( ! $screen || $screen->id !== 'toplevel_page_image-optimization-dashboard' ) {
+            return;
+        }
         
-        // Add filter to override translations
-        add_filter( 'gettext', function( $translation, $text, $domain ) use ( $vietnamese_texts ) {
-            if ( $domain === 'improve-image-delivery-pagespeed' && isset( $vietnamese_texts[$text] ) ) {
-                return $vietnamese_texts[$text];
-            }
-            return $translation;
-        }, 10, 3 );
+        // Get user preference
+        $user_preference = get_user_meta( get_current_user_id(), 'image_optimization_language', true );
+        $site_preference = get_option( 'image_optimization_language', '' );
+        $preferred_locale = ! empty( $user_preference ) ? $user_preference : $site_preference;
+        
+        // Default to Vietnamese if no preference set
+        if ( empty( $preferred_locale ) ) {
+            $preferred_locale = 'vi_VN';
+            // Store the default preference
+            update_option( 'image_optimization_language', 'vi_VN' );
+        }
+        
+        // Load Vietnamese fallbacks if Vietnamese is preferred
+        if ( $preferred_locale === 'vi_VN' ) {
+            $main_plugin = Image_Optimization::get_instance();
+            $main_plugin->load_vietnamese_fallbacks();
+        }
     }
 }

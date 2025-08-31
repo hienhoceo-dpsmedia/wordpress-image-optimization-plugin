@@ -1,2 +1,2 @@
 ��
-                                        Language:Ngôn ngữ:Improve Image Delivery PageSpeed%Cải Thiện Tốc Độ Tải Hình Ảnh PageSpeed
+                  (   8   H   X   l   �   �   �                                                       Language:Improve Image Delivery PageSpeedStart Complete OptimizationTotal ImagesOptimizedPendingSpace SavedNgôn ngữ:&Cải Thiện Tốc Độ Tải Hình Ảnh PageSpeed Bắt Đầu Tối Ưu Hoàn ChỉnhTổng Số Hình ẢnhĐã Tối ƯuĐang ChờDung Lượng Tiết Kiệm
