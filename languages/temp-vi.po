@@ -1,0 +1,22 @@
+# Vietnamese translations for Improve Image Delivery PageSpeed
+# Copyright (C) 2024 HỒ QUANG HIỂN
+# This file is distributed under the same license as the Improve Image Delivery PageSpeed plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Improve Image Delivery PageSpeed 1.0.0\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Language:"
+msgstr "Ngôn ngữ:"
+
+msgid "Improve Image Delivery PageSpeed"
+msgstr "Cải Thiện Tốc Độ Tải Hình Ảnh PageSpeed"
+
+msgid "Boost Your PageSpeed Insights Score & Core Web Vitals"
+msgstr "Tăng Điểm PageSpeed Insights & Core Web Vitals"
+
+msgid "Automatically convert your JPEG/PNG images to modern WebP/AVIF formats to reduce download time, improve perceived page load performance, and enhance your Largest Contentful Paint (LCP) scores for better Core Web Vitals."
+msgstr "Tự động chuyển đổi hình ảnh JPEG/PNG sang định dạng WebP/AVIF hiện đại để giảm thời gian tải xuống, cải thiện hiệu suất tải trang cảm nhận và nâng cao điểm Largest Contentful Paint (LCP) cho Core Web Vitals tốt hơn."

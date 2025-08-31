@@ -26,8 +26,19 @@ $export_nonce = wp_create_nonce( $settings->get_nonce_action( 'export' ) );
             🌍 <?php esc_html_e( 'Language:', 'improve-image-delivery-pagespeed' ); ?>
         </label>
         <select id="plugin-language-selector" style="margin-left: 8px; font-size: 13px;">
-            <option value="vi_VN" <?php selected( get_locale(), 'vi_VN' ); ?>>🇻🇳 Tiếng Việt</option>
-            <option value="en_US" <?php selected( get_locale(), 'en_US' ); ?>>🇺🇸 English</option>
+            <?php
+            // Get current plugin language preference
+            $current_user_lang = get_user_meta( get_current_user_id(), 'image_optimization_language', true );
+            $current_site_lang = get_option( 'image_optimization_language', '' );
+            $current_plugin_lang = ! empty( $current_user_lang ) ? $current_user_lang : $current_site_lang;
+            
+            // If no preference set, determine from current locale
+            if ( empty( $current_plugin_lang ) ) {
+                $current_plugin_lang = ( get_locale() === 'vi_VN' || empty( get_locale() ) ) ? 'vi_VN' : 'en_US';
+            }
+            ?>
+            <option value="vi_VN" <?php selected( $current_plugin_lang, 'vi_VN' ); ?>>🇻🇳 Tiếng Việt</option>
+            <option value="en_US" <?php selected( $current_plugin_lang, 'en_US' ); ?>>🇺🇸 English</option>
         </select>
         <p style="font-size: 12px; color: #888; margin: 4px 0 0; text-align: right;">
             <?php esc_html_e( 'Note: This plugin defaults to Vietnamese. To permanently change language, update your WordPress admin language in Settings → General.', 'improve-image-delivery-pagespeed' ); ?>

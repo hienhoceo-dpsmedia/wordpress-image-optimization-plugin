@@ -118,7 +118,7 @@ class Image_Optimization {
     }
 
     /**
-     * Set plugin locale to Vietnamese by default
+     * Set plugin locale based on user preference or default to Vietnamese
      *
      * @since 1.0.0
      * @param string $locale The locale.
@@ -127,6 +127,18 @@ class Image_Optimization {
      */
     public function set_plugin_locale( $locale, $domain ) {
         if ( 'improve-image-delivery-pagespeed' === $domain ) {
+            // Check user preference first
+            $user_preference = get_user_meta( get_current_user_id(), 'image_optimization_language', true );
+            if ( ! empty( $user_preference ) && in_array( $user_preference, array( 'vi_VN', 'en_US' ), true ) ) {
+                return $user_preference;
+            }
+            
+            // Check site option
+            $site_preference = get_option( 'image_optimization_language', '' );
+            if ( ! empty( $site_preference ) && in_array( $site_preference, array( 'vi_VN', 'en_US' ), true ) ) {
+                return $site_preference;
+            }
+            
             // Default to Vietnamese if current locale is English or empty
             if ( in_array( $locale, array( 'en_US', 'en', '' ), true ) ) {
                 return 'vi_VN';
@@ -141,11 +153,30 @@ class Image_Optimization {
      * @since 1.0.0
      */
     public function load_textdomain() {
-        load_plugin_textdomain(
+        // Get the preferred language for this plugin
+        $user_preference = get_user_meta( get_current_user_id(), 'image_optimization_language', true );
+        $site_preference = get_option( 'image_optimization_language', '' );
+        $preferred_locale = ! empty( $user_preference ) ? $user_preference : $site_preference;
+        
+        // If no preference, default to Vietnamese for this plugin
+        if ( empty( $preferred_locale ) ) {
+            $preferred_locale = 'vi_VN';
+        }
+        
+        // Load the preferred language
+        $loaded = load_plugin_textdomain(
             'improve-image-delivery-pagespeed',
             false,
             dirname( IMAGE_OPTIMIZATION_BASENAME ) . '/languages'
         );
+        
+        // If preferred language didn't load, try to load specific locale
+        if ( ! $loaded && $preferred_locale !== get_locale() ) {
+            $mo_file = dirname( IMAGE_OPTIMIZATION_PLUGIN_FILE ) . '/languages/improve-image-delivery-pagespeed-' . $preferred_locale . '.mo';
+            if ( file_exists( $mo_file ) ) {
+                load_textdomain( 'improve-image-delivery-pagespeed', $mo_file );
+            }
+        }
     }
 
     /**

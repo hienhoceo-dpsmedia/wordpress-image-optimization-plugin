@@ -6,17 +6,16 @@
         const nonces = imageOptimization.nonces;
         const strings = imageOptimization.strings;
         
-        // Language selector functionality
+        // Language selector functionality - Actually changes plugin language
         $('#plugin-language-selector').on('change', function() {
             const selectedLocale = $(this).val();
-            const currentUrl = window.location.href;
             
-            // Show a notice about language change
+            // Show loading notice
             const notice = $('<div class="notice notice-info" style="margin: 10px 0; padding: 10px;"></div>');
             if (selectedLocale === 'vi_VN') {
-                notice.html('<p>🌍 Switching to Vietnamese interface. Note: To permanently change your WordPress language, go to Settings → General → Site Language.</p>');
+                notice.html('<p>🌍 Đang chuyển sang tiếng Việt... / Switching to Vietnamese...</p>');
             } else {
-                notice.html('<p>🌍 Switching to English interface. Note: To permanently change your WordPress language, go to Settings → General → Site Language.</p>');
+                notice.html('<p>🌍 Switching to English... / Đang chuyển sang tiếng Anh...</p>');
             }
             
             $('.image-optimization-language-selector').after(notice);
@@ -24,16 +23,29 @@
             // Store preference in localStorage
             localStorage.setItem('imageOptimizationLanguage', selectedLocale);
             
-            // Redirect to WordPress language settings for permanent change
-            setTimeout(function() {
-                const message = selectedLocale === 'vi_VN' 
-                    ? 'To permanently set Vietnamese as your WordPress language, please go to Settings → General and change "Site Language" to "Tiếng Việt".' 
-                    : 'To permanently set English as your WordPress language, please go to Settings → General and change "Site Language" to "English (United States)".';
-                    
-                if (confirm(message + '\n\nWould you like to go to the General Settings page now?')) {
-                    window.location.href = 'options-general.php';
+            // Send AJAX request to change plugin language
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                data: {
+                    action: 'image_optimization_change_language',
+                    locale: selectedLocale,
+                    _wpnonce: nonces.scan // reuse scan nonce
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Reload the page to show new language
+                        window.location.reload();
+                    } else {
+                        notice.removeClass('notice-info').addClass('notice-error');
+                        notice.html('<p>❌ Failed to change language. Please try refreshing the page.</p>');
+                    }
+                },
+                error: function() {
+                    // Fallback: just reload the page
+                    window.location.reload();
                 }
-            }, 2000);
+            });
         });
         
         // Set initial language selection based on current locale or stored preference

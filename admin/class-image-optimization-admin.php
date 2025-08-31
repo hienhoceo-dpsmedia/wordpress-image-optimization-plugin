@@ -64,6 +64,7 @@ class Image_Optimization_Admin {
         add_action( 'wp_ajax_image_optimization_revert_all', array( $this, 'ajax_revert_all' ) );
         add_action( 'wp_ajax_image_optimization_add_htaccess', array( $this, 'ajax_add_htaccess' ) );
         add_action( 'wp_ajax_image_optimization_remove_htaccess', array( $this, 'ajax_remove_htaccess' ) );
+        add_action( 'wp_ajax_image_optimization_change_language', array( $this, 'ajax_change_language' ) );
         
         // Admin post handlers
         add_action( 'admin_post_image_optimization_save_settings', array( $this, 'save_settings' ) );
@@ -864,5 +865,35 @@ class Image_Optimization_Admin {
 
         wp_safe_redirect( $redirect_url );
         exit;
+    }
+
+    /**
+     * AJAX handler for changing plugin language
+     *
+     * @since 1.0.0
+     */
+    public function ajax_change_language() {
+        check_ajax_referer( 'image_optimization_scan_nonce', '_wpnonce' );
+        
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( __( 'Insufficient permissions', 'improve-image-delivery-pagespeed' ) );
+        }
+        
+        $locale = sanitize_text_field( $_POST['locale'] ?? '' );
+        
+        if ( ! in_array( $locale, array( 'vi_VN', 'en_US' ), true ) ) {
+            wp_send_json_error( __( 'Invalid language selection', 'improve-image-delivery-pagespeed' ) );
+        }
+        
+        // Store the user's language preference for this plugin
+        update_user_meta( get_current_user_id(), 'image_optimization_language', $locale );
+        
+        // Store it as a site option as well for consistency
+        update_option( 'image_optimization_language', $locale );
+        
+        wp_send_json_success( array(
+            'message' => __( 'Language changed successfully', 'improve-image-delivery-pagespeed' ),
+            'locale' => $locale
+        ) );
     }
 }
