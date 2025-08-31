@@ -3,7 +3,7 @@
  * Plugin Name: Improve Image Delivery PageSpeed
  * Plugin URI: https://dps.media/plugins/improve-image-delivery-pagespeed/
  * Description: Boost your PageSpeed Insights score and improve Core Web Vitals (LCP) by automatically converting JPEG/PNG images to modern WebP/AVIF formats. Reduces image download time and improves perceived page load performance.
- * Version: 1.0.0
+ * Version: 1.0.4
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: HỒ QUANG HIỂN
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'IMAGE_OPTIMIZATION_VERSION', '1.0.0' );
+define( 'IMAGE_OPTIMIZATION_VERSION', '1.0.4' );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_FILE', __FILE__ );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -130,21 +130,86 @@ class Image_Optimization {
             // Check user preference first
             $user_preference = get_user_meta( get_current_user_id(), 'image_optimization_language', true );
             if ( ! empty( $user_preference ) && in_array( $user_preference, array( 'vi_VN', 'en_US' ), true ) ) {
+                // Load Vietnamese fallbacks if needed
+                if ( $user_preference === 'vi_VN' ) {
+                    add_action( 'admin_init', array( $this, 'load_vietnamese_fallbacks' ) );
+                }
                 return $user_preference;
             }
             
             // Check site option
             $site_preference = get_option( 'image_optimization_language', '' );
             if ( ! empty( $site_preference ) && in_array( $site_preference, array( 'vi_VN', 'en_US' ), true ) ) {
+                if ( $site_preference === 'vi_VN' ) {
+                    add_action( 'admin_init', array( $this, 'load_vietnamese_fallbacks' ) );
+                }
                 return $site_preference;
             }
             
             // Default to Vietnamese if current locale is English or empty
             if ( in_array( $locale, array( 'en_US', 'en', '' ), true ) ) {
+                add_action( 'admin_init', array( $this, 'load_vietnamese_fallbacks' ) );
                 return 'vi_VN';
             }
         }
         return $locale;
+    }
+    
+    /**
+     * Load Vietnamese text fallbacks when .mo file is not available
+     */
+    public function load_vietnamese_fallbacks() {
+        // Define key Vietnamese translations as fallbacks
+        $vietnamese_texts = array(
+            'Language:' => 'Ngôn ngữ:',
+            'Improve Image Delivery PageSpeed' => 'Cải Thiện Tốc Độ Tải Hình Ảnh PageSpeed',
+            'Boost Your PageSpeed Insights Score & Core Web Vitals' => 'Tăng Điểm PageSpeed Insights & Core Web Vitals',
+            'Automatically convert your JPEG/PNG images to modern WebP/AVIF formats to reduce download time, improve perceived page load performance, and enhance your Largest Contentful Paint (LCP) scores for better Core Web Vitals.' => 'Tự động chuyển đổi hình ảnh JPEG/PNG sang định dạng WebP/AVIF hiện đại để giảm thời gian tải xuống, cải thiện hiệu suất tải trang cảm nhận và nâng cao điểm Largest Contentful Paint (LCP) cho Core Web Vitals tốt hơn.',
+            'PageSpeed Optimization Benefits' => 'Lợi Ích Tối Ưu PageSpeed',
+            'Improve LCP Score' => 'Cải Thiện Điểm LCP',
+            'Reduce image file sizes by 25-50% to speed up largest image loading times.' => 'Giảm kích thước file hình ảnh 25-50% để tăng tốc thời gian tải hình ảnh lớn nhất.',
+            'Faster Page Loads' => 'Tải Trang Nhanh Hơn',
+            'Smaller images mean faster download times and better user experience.' => 'Hình ảnh nhỏ hơn có nghĩa là thời gian tải xuống nhanh hơn và trải nghiệm người dùng tốt hơn.',
+            'Mobile Performance' => 'Hiệu Suất Mobile',
+            'Especially beneficial for mobile users with slower connections.' => 'Đặc biệt có lợi cho người dùng di động với kết nối chậm hơn.',
+            'No Server Overload' => 'Không Quá Tải Máy Chủ',
+            'Convert images on-demand without background processing that slows your site.' => 'Chuyển đổi hình ảnh theo yêu cầu mà không có xử lý nền làm chậm trang web của bạn.',
+            'SEO Benefits' => 'Lợi Ích SEO',
+            'Better PageSpeed scores can improve your search engine rankings.' => 'Điểm PageSpeed tốt hơn có thể cải thiện thứ hạng công cụ tìm kiếm của bạn.',
+            'Start Complete Optimization' => 'Bắt Đầu Tối Ưu Hoàn Chỉnh',
+            'Quick PageSpeed Optimization - 3 Steps' => 'Tối Ưu PageSpeed Nhanh - 3 Bước',
+            'Follow these steps to boost your PageSpeed Insights score and improve Core Web Vitals:' => 'Thực hiện các bước này để tăng điểm PageSpeed Insights và cải thiện Core Web Vitals:',
+            'Scan for Optimization Opportunities' => 'Quét Tìm Cơ Hội Tối Ưu',
+            'Automatically finds all JPEG/PNG images that can be optimized to improve your PageSpeed score.' => 'Tự động tìm tất cả hình ảnh JPEG/PNG có thể được tối ưu hóa để cải thiện điểm PageSpeed của bạn.',
+            'Convert to Modern Formats' => 'Chuyển Đổi Sang Định Dạng Hiện Đại',
+            'Converts images to WebP/AVIF formats for faster loading, smaller file sizes, and better LCP scores.' => 'Chuyển đổi hình ảnh sang định dạng WebP/AVIF để tải nhanh hơn, kích thước file nhỏ hơn và điểm LCP tốt hơn.',
+            'Automatic Performance Setup' => 'Thiết Lập Hiệu Suất Tự Động',
+            'Optimization Status Dashboard' => 'Bảng Điều Khiển Trạng Thái Tối Ưu',
+            'View your current optimization progress and statistics' => 'Xem tiến trình tối ưu hóa hiện tại và thống kê của bạn',
+            'Optimization Status' => 'Trạng Thái Tối Ưu',
+            'Total Images' => 'Tổng Số Hình Ảnh',
+            'Optimized' => 'Đã Tối Ưu',
+            'Pending' => 'Đang Chờ',
+            'Space Saved' => 'Dung Lượng Tiết Kiệm',
+            'Storage Optimization' => 'Tối Ưu Lưu Trữ',
+            'Optimization Settings' => 'Cài Đặt Tối Ưu',
+            'Configure which images to optimize and quality settings' => 'Cấu hình hình ảnh nào để tối ưu hóa và cài đặt chất lượng',
+        );
+        
+        // Add filter to override translations
+        add_filter( 'gettext', function( $translation, $text, $domain ) use ( $vietnamese_texts ) {
+            if ( $domain === 'improve-image-delivery-pagespeed' && isset( $vietnamese_texts[$text] ) ) {
+                return $vietnamese_texts[$text];
+            }
+            return $translation;
+        }, 10, 3 );
+        
+        add_filter( 'gettext_with_context', function( $translation, $text, $context, $domain ) use ( $vietnamese_texts ) {
+            if ( $domain === 'improve-image-delivery-pagespeed' && isset( $vietnamese_texts[$text] ) ) {
+                return $vietnamese_texts[$text];
+            }
+            return $translation;
+        }, 10, 4 );
     }
 
     /**

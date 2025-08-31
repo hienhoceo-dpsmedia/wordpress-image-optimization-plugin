@@ -891,9 +891,52 @@ class Image_Optimization_Admin {
         // Store it as a site option as well for consistency
         update_option( 'image_optimization_language', $locale );
         
+        // Temporarily override the locale for this request
+        add_filter( 'locale', function( $current_locale ) use ( $locale ) {
+            return $locale;
+        }, 999 );
+        
+        // Reload text domain with new locale
+        unload_textdomain( 'improve-image-delivery-pagespeed' );
+        
+        // Load the correct translations
+        if ( $locale === 'vi_VN' ) {
+            // Load Vietnamese translations or use fallbacks
+            $this->load_vietnamese_fallbacks();
+        }
+        
         wp_send_json_success( array(
             'message' => __( 'Language changed successfully', 'improve-image-delivery-pagespeed' ),
             'locale' => $locale
         ) );
+    }
+    
+    /**
+     * Load Vietnamese text fallbacks when .mo file is not available
+     */
+    private function load_vietnamese_fallbacks() {
+        // Define key Vietnamese translations as fallbacks
+        $vietnamese_texts = array(
+            'Language:' => 'Ngôn ngữ:',
+            'Improve Image Delivery PageSpeed' => 'Cải Thiện Tốc Độ Tải Hình Ảnh PageSpeed',
+            'Boost Your PageSpeed Insights Score & Core Web Vitals' => 'Tăng Điểm PageSpeed Insights & Core Web Vitals',
+            'Start Complete Optimization' => 'Bắt Đầu Tối Ưu Hoàn Chỉnh',
+            'Quick PageSpeed Optimization - 3 Steps' => 'Tối Ưu PageSpeed Nhanh - 3 Bước',
+            'Scan for Optimization Opportunities' => 'Quét Tìm Cơ Hội Tối Ưu',
+            'Convert to Modern Formats' => 'Chuyển Đổi Sang Định Dạng Hiện Đại',
+            'Automatic Performance Setup' => 'Thiết Lập Hiệu Suất Tự Động',
+            'Total Images' => 'Tổng Số Hình Ảnh',
+            'Optimized' => 'Đã Tối Ưu',
+            'Pending' => 'Đang Chờ',
+            'Space Saved' => 'Dung Lượng Tiết Kiệm',
+        );
+        
+        // Add filter to override translations
+        add_filter( 'gettext', function( $translation, $text, $domain ) use ( $vietnamese_texts ) {
+            if ( $domain === 'improve-image-delivery-pagespeed' && isset( $vietnamese_texts[$text] ) ) {
+                return $vietnamese_texts[$text];
+            }
+            return $translation;
+        }, 10, 3 );
     }
 }
