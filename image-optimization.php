@@ -3,7 +3,7 @@
  * Plugin Name: Improve Image Delivery PageSpeed
  * Plugin URI: https://dps.media/plugins/improve-image-delivery-pagespeed/
  * Description: Boost your PageSpeed Insights score and improve Core Web Vitals (LCP) by automatically converting JPEG/PNG images to modern WebP/AVIF formats. Reduces image download time and improves perceived page load performance.
- * Version: 1.0.7
+ * Version: 1.0.8
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: HỒ QUANG HIỂN
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'IMAGE_OPTIMIZATION_VERSION', '1.0.7' );
+define( 'IMAGE_OPTIMIZATION_VERSION', '1.0.8' );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_FILE', __FILE__ );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
