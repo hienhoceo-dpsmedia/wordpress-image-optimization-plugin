@@ -1,6 +1,6 @@
 {
   "name": "wordpress-image-optimization-plugin",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "WordPress Image Optimization Plugin - Convert JPEG/PNG to WebP/AVIF formats for better PageSpeed Insights and Core Web Vitals. Vietnamese language support with manual control.",
   "main": "image-optimization.php",
   "scripts": {
