@@ -1,0 +1,882 @@
+# Copyright (C) 2024 HỒ QUANG HIỂN - DPS.MEDIA JSC
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Improve Image Delivery PageSpeed 1.0.0\n"
+"Report-Msgid-Bugs-To: https://dps.media/support/\n"
+"POT-Creation-Date: 2024-08-30 18:30+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: image-optimization.php:83
+msgid "Image Optimization requires WordPress 5.0+ and PHP 7.4+"
+msgstr ""
+
+#: image-optimization.php:84
+msgid "Plugin Activation Error"
+msgstr ""
+
+#: includes/class-image-optimization-converter.php:169
+msgid "Neither Imagick nor GD WebP support is available on this server."
+msgstr ""
+
+#: includes/class-image-optimization-converter.php:178
+msgid "Source is not a JPEG or PNG."
+msgstr ""
+
+#: includes/class-image-optimization-converter.php:220
+#, php-format
+msgid "Failed to write %s (Imagick)."
+msgstr ""
+
+#: includes/class-image-optimization-converter.php:249
+msgid "GD only supports WebP format."
+msgstr ""
+
+#: includes/class-image-optimization-converter.php:266
+msgid "Failed to open source image (GD)."
+msgstr ""
+
+#: includes/class-image-optimization-converter.php:271
+msgid "Failed to write WebP (GD)."
+msgstr ""
+
+#: includes/class-image-optimization-converter.php:321
+msgid "unknown error"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:78
+msgid "Image Optimization"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:122
+msgid "WebP is not supported by Imagick or GD on this server. Conversion will be skipped."
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:131
+#, php-format
+msgid "Successfully optimized %d image(s)"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:133
+#, php-format
+msgid " with %d error(s)"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:137
+#, php-format
+msgid "Optimization failed with %d error(s)."
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:145
+#, php-format
+msgid "Successfully converted %d file(s) to WebP"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:147
+#, php-format
+msgid ", skipped %d file(s)"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:150
+#, php-format
+msgid ", %d error(s)"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:155
+#, php-format
+msgid "Conversion failed with %d error(s)."
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:159
+#, php-format
+msgid "All %d file(s) were skipped (already converted or below thresholds)."
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:173
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:179
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:191
+msgid "Forbidden"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:195
+msgid "Invalid nonce"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:560
+msgid "Convert to WebP"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:597
+msgid "WebP Status"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:610
+msgid "N/A"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:629
+msgid "Not optimized"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:631
+#, php-format
+msgid "Fully optimized (%1$d/%2$d)"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:633
+#, php-format
+msgid "Partially optimized (%1$d/%2$d)"
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:681
+msgid "Invalid attachment ID."
+msgstr ""
+
+#: admin/class-image-optimization-admin.php:687
+msgid "This file type cannot be converted."
+msgstr ""
+
+#: admin/views/dashboard.php:24
+msgid "Image Optimization Summary"
+msgstr ""
+
+#: admin/views/dashboard.php:27
+msgid "Start Local Optimization"
+msgstr ""
+
+#: admin/views/dashboard.php:31
+msgid "Optimization Status"
+msgstr ""
+
+#: admin/views/dashboard.php:35
+msgid "Total Images"
+msgstr ""
+
+#: admin/views/dashboard.php:39
+msgid "Optimized"
+msgstr ""
+
+#: admin/views/dashboard.php:43
+msgid "Pending"
+msgstr ""
+
+#: admin/views/dashboard.php:47
+msgid "Space Saved"
+msgstr ""
+
+#: admin/views/dashboard.php:53
+msgid "Storage Optimization"
+msgstr ""
+
+#: admin/views/dashboard.php:55
+msgid "Last optimized:"
+msgstr ""
+
+#: admin/views/dashboard.php:56
+msgid "Format:"
+msgstr ""
+
+#: admin/views/dashboard.php:57
+msgid "Original images:"
+msgstr ""
+
+#: admin/views/dashboard.php:57
+msgid "Enabled"
+msgstr ""
+
+#: admin/views/dashboard.php:57
+msgid "Disabled"
+msgstr ""
+
+#: admin/views/dashboard.php:58
+msgid "Thumbnail images:"
+msgstr ""
+
+#: admin/views/dashboard.php:62
+msgid "Image Thumbnail Sizes"
+msgstr ""
+
+#: admin/views/dashboard.php:66
+msgid "Original"
+msgstr ""
+
+#: admin/views/dashboard.php:67
+msgid "Ready"
+msgstr ""
+
+#: admin/views/dashboard.php:81
+msgid "No image sizes selected for optimization. Please enable at least one option in settings."
+msgstr ""
+
+#: admin/views/dashboard.php:86
+msgid "Optimization Settings"
+msgstr ""
+
+#: admin/views/dashboard.php:92
+msgid "Image Size Options"
+msgstr ""
+
+#: admin/views/dashboard.php:95
+msgid "Optimize Original Images"
+msgstr ""
+
+#: admin/views/dashboard.php:98
+msgid "Convert the original uploaded image files"
+msgstr ""
+
+#: admin/views/dashboard.php:103
+msgid "Optimize Thumbnail Images"
+msgstr ""
+
+#: admin/views/dashboard.php:106
+#, php-format
+msgid "Convert all thumbnail size variants (%1$d sizes: %2$s)"
+msgstr ""
+
+#: admin/views/dashboard.php:117
+msgid "Conversion Settings"
+msgstr ""
+
+#: admin/views/dashboard.php:120
+msgid "Conversion quality"
+msgstr ""
+
+#: admin/views/dashboard.php:123
+msgid "0–100, default 80"
+msgstr ""
+
+#: admin/views/dashboard.php:127
+msgid "Min width (px)"
+msgstr ""
+
+#: admin/views/dashboard.php:131
+msgid "Min height (px)"
+msgstr ""
+
+#: admin/views/dashboard.php:135
+msgid "Min file size (KB)"
+msgstr ""
+
+#: admin/views/dashboard.php:139
+msgid "Force include small images"
+msgstr ""
+
+#: admin/views/dashboard.php:142
+msgid "Ignore thresholds when scanning/converting"
+msgstr ""
+
+#: admin/views/dashboard.php:149
+msgid "Fallback URL Replacement"
+msgstr ""
+
+#: admin/views/dashboard.php:152
+msgid "Enable Fallback Replacement"
+msgstr ""
+
+#: admin/views/dashboard.php:155
+msgid "Replace image URLs with WebP versions in your site's HTML"
+msgstr ""
+
+#: admin/views/dashboard.php:157
+msgid "This is a fallback option for sites not using LiteSpeed Cache. We recommend using LiteSpeed Cache for better performance."
+msgstr ""
+
+#: admin/views/dashboard.php:163
+msgid "Save Settings"
+msgstr ""
+
+#: admin/views/dashboard.php:169
+msgid "Optimization Tools"
+msgstr ""
+
+#: admin/views/dashboard.php:170
+msgid "First Scan to build a pending list. Then Convert Pending in safe batches."
+msgstr ""
+
+#: admin/views/dashboard.php:172
+msgid "Scan"
+msgstr ""
+
+#: admin/views/dashboard.php:173
+msgid "Convert Pending"
+msgstr ""
+
+#: admin/views/dashboard.php:174
+msgid "Export JSON"
+msgstr ""
+
+#: admin/views/dashboard.php:175
+msgid "Export CSV"
+msgstr ""
+
+#: admin/views/dashboard.php:179
+msgid "Total JPG/PNG:"
+msgstr ""
+
+#: admin/views/dashboard.php:180
+msgid "Already converted:"
+msgstr ""
+
+#: admin/views/dashboard.php:181
+msgid "Pending:"
+msgstr ""
+
+#: admin/views/dashboard.php:182
+msgid "Ignored:"
+msgstr ""
+
+#: admin/views/dashboard.php:184
+msgid "Ignored reasons:"
+msgstr ""
+
+#: admin/views/dashboard.php:186
+msgid "Too small dimensions:"
+msgstr ""
+
+#: admin/views/dashboard.php:187
+msgid "Too small file size:"
+msgstr ""
+
+#: admin/views/dashboard.php:188
+msgid "Unreadable/missing path:"
+msgstr ""
+
+#: admin/views/dashboard.php:200
+msgid "Image Information"
+msgstr ""
+
+#: admin/views/dashboard.php:202
+msgid "Total Images:"
+msgstr ""
+
+#: admin/views/dashboard.php:203
+msgid "Optimized:"
+msgstr ""
+
+#: admin/views/dashboard.php:208
+msgid "Optimization Summary"
+msgstr ""
+
+#: admin/views/dashboard.php:213
+msgid "of"
+msgstr ""
+
+#: admin/views/dashboard.php:213
+msgid "images optimized"
+msgstr ""
+
+#: admin/views/dashboard.php:214
+msgid "Space saved:"
+msgstr ""
+
+#: admin/views/dashboard.php:219
+msgid "LiteSpeed Cache Settings"
+msgstr ""
+
+#: admin/views/dashboard.php:221
+msgid "To enable WebP/AVIF replacement, configure these settings in LiteSpeed Cache:"
+msgstr ""
+
+#: admin/views/dashboard.php:223
+msgid "Go to LiteSpeed Cache → Settings → Image Optimization"
+msgstr ""
+
+#: admin/views/dashboard.php:224
+msgid "Enable Image WebP Replacement"
+msgstr ""
+
+#: admin/views/dashboard.php:225
+msgid "Configure other optimization options as needed"
+msgstr ""
+
+#: admin/views/dashboard.php:228
+msgid "Open LiteSpeed Cache Settings"
+msgstr ""
+
+#: admin/views/dashboard.php:232
+msgid "LiteSpeed Cache Not Detected:"
+msgstr ""
+
+#: admin/views/dashboard.php:232
+msgid "Consider installing LiteSpeed Cache for better performance and caching."
+msgstr ""
+
+#: includes/class-image-optimization-converter.php:375
+msgid "Could not access uploads directory"
+msgstr ""
+
+#: includes/class-image-optimization-converter.php:385
+#, php-format
+msgid "Removed %1$d WebP files with %2$d errors"
+msgstr ""
+
+#: admin/views/dashboard.php:8
+msgid "Why Use Local Image Convert?"
+msgstr ""
+
+#: admin/views/dashboard.php:9
+msgid "Most VPS and hosting environments already include Imagick or GD, which fully support converting PNG/JPG to WebP. That's why we built this plugin—to give you a faster and more efficient solution compared to relying on automatic optimizers."
+msgstr ""
+
+#: admin/views/dashboard.php:11
+msgid "Key Benefits"
+msgstr ""
+
+#: admin/views/dashboard.php:13
+msgid "Full Control"
+msgstr ""
+
+#: admin/views/dashboard.php:13
+msgid "Optimize images only when you want, no background tasks eating resources."
+msgstr ""
+
+#: admin/views/dashboard.php:14
+msgid "Zero Server Overload"
+msgstr ""
+
+#: admin/views/dashboard.php:14
+msgid "Manual conversion means no hidden processes slowing down your site."
+msgstr ""
+
+#: admin/views/dashboard.php:15
+msgid "Better Than Quotas"
+msgstr ""
+
+#: admin/views/dashboard.php:15
+msgid "Unlike LiteSpeed Cache or other cloud-based services, you don't need to wait for queues or worry about hitting daily limits."
+msgstr ""
+
+#: admin/views/dashboard.php:16
+msgid "Transparent Process"
+msgstr ""
+
+#: admin/views/dashboard.php:16
+msgid "Know exactly what's happening with clear conversion logs."
+msgstr ""
+
+#: admin/views/dashboard.php:17
+msgid "Reversible"
+msgstr ""
+
+#: admin/views/dashboard.php:17
+msgid "Easily remove all WebP files if you want to roll back."
+msgstr ""
+
+#: admin/views/dashboard.php:20
+msgid "In short, Local Image Convert is built for speed, control, and independence—perfect if you manage many images and don't want to waste time waiting for external services."
+msgstr ""
+
+#: admin/views/dashboard.php:25
+msgid "Getting Started – Simple 3-Step Process"
+msgstr ""
+
+#: admin/views/dashboard.php:26
+msgid "Follow these steps to optimize your images and improve your site's performance:"
+msgstr ""
+
+#: admin/views/dashboard.php:31
+msgid "Scan Your Images"
+msgstr ""
+
+#: admin/views/dashboard.php:32
+msgid "Click \"Start Local Optimization\" below to scan all your JPG/PNG images and see how many can be optimized."
+msgstr ""
+
+#: admin/views/dashboard.php:37
+msgid "Convert to WebP"
+msgstr ""
+
+#: admin/views/dashboard.php:38
+msgid "The system automatically converts your images to WebP format, saving 25-35% file size while maintaining quality."
+msgstr ""
+
+#: admin/views/dashboard.php:43
+msgid "Configure Serving"
+msgstr ""
+
+#: admin/views/dashboard.php:46
+msgid "LiteSpeed Cache Detected:"
+msgstr ""
+
+#: admin/views/dashboard.php:47
+msgid "Go to LiteSpeed Cache → Image Optimization and configure:"
+msgstr ""
+
+#: admin/views/dashboard.php:49
+msgid "Next-Gen Image Format: WebP"
+msgstr ""
+
+#: admin/views/dashboard.php:50
+msgid "WebP/AVIF For Extra srcset: ON"
+msgstr ""
+
+#: admin/views/dashboard.php:53
+msgid "No LiteSpeed Cache:"
+msgstr ""
+
+#: admin/views/dashboard.php:54
+msgid "Add .htaccess rules below to automatically serve WebP images to modern browsers."
+msgstr ""
+
+#: admin/views/dashboard.php:60
+msgid "Start Local Optimization"
+msgstr ""
+
+#: admin/views/dashboard.php:63
+msgid "This will scan your images and convert them to WebP format. Original images are preserved."
+msgstr ""
+
+#: admin/views/dashboard.php:70
+msgid "Optimization Status Dashboard"
+msgstr ""
+
+#: admin/views/dashboard.php:273
+msgid "Manual Control Center"
+msgstr ""
+
+#: admin/views/dashboard.php:274
+msgid "Advanced manual controls for power users. Use these tools for detailed control over the optimization process."
+msgstr ""
+
+#: admin/views/dashboard.php:277
+msgid "Step-by-Step Process:"
+msgstr ""
+
+#: admin/views/dashboard.php:280
+msgid "Scan"
+msgstr ""
+
+#: admin/views/dashboard.php:281
+msgid "Scan Images"
+msgstr ""
+
+#: admin/views/dashboard.php:284
+msgid "Convert"
+msgstr ""
+
+#: admin/views/dashboard.php:285
+msgid "Convert Pending"
+msgstr ""
+
+#: admin/views/dashboard.php:288
+msgid "Manage"
+msgstr ""
+
+#: admin/views/dashboard.php:289
+msgid "Remove All WebP"
+msgstr ""
+
+#: admin/views/dashboard.php:294
+msgid "Export Reports:"
+msgstr ""
+
+#: admin/views/dashboard.php:296
+msgid "Export JSON"
+msgstr ""
+
+#: admin/views/dashboard.php:297
+msgid "Export CSV"
+msgstr ""
+
+#: admin/views/dashboard.php:405
+msgid "Rate Plugin"
+msgstr ""
+
+#: admin/views/dashboard.php:408
+msgid "Support Development"
+msgstr ""
+
+#: admin/views/dashboard.php:411
+msgid "Get Support"
+msgstr ""
+
+#: admin/views/dashboard.php:418
+msgid "Optimization completed successfully! Consider rating this plugin to help other users discover it."
+msgstr ""
+
+#: admin/views/dashboard.php:419
+msgid "Rate Now →"
+msgstr ""
+
+#: admin/js/admin.js:45
+msgid "Scanning images..."
+msgstr ""
+
+#: admin/js/admin.js:67
+msgid "Converting images..."
+msgstr ""
+
+#: admin/js/admin.js:86
+msgid "🚀 Start Local Optimization"
+msgstr ""
+
+#: admin/js/admin.js:89
+msgid "✓ Completed"
+msgstr ""
+
+#: admin/js/admin.js:94
+msgid "Great job! Your images have been optimized. Would you like to rate this plugin to help other users?"
+msgstr ""
+
+#: admin/views/dashboard.php:364
+msgid "Quick Help"
+msgstr ""
+
+#: admin/views/dashboard.php:367
+msgid "New User?"
+msgstr ""
+
+#: admin/views/dashboard.php:368
+msgid "Just click the big \"Start Local Optimization\" button above. It will handle everything automatically!"
+msgstr ""
+
+#: admin/views/dashboard.php:371
+msgid "What is WebP?"
+msgstr ""
+
+#: admin/views/dashboard.php:372
+msgid "WebP is a modern image format that reduces file sizes by 25-35% without losing quality. Faster loading = better SEO!"
+msgstr ""
+
+#: admin/views/dashboard.php:375
+msgid "Need Settings?"
+msgstr ""
+
+#: admin/views/dashboard.php:376
+msgid "Default settings work great for most sites. Only change if you know what you're doing."
+msgstr ""
+
+#: admin/views/dashboard.php:379
+msgid "Is it Safe?"
+msgstr ""
+
+#: admin/views/dashboard.php:380
+msgid "Yes! Your original images are never deleted. WebP copies are created alongside them."
+msgstr ""
+
+#: admin/views/dashboard.php:215
+msgid "Remove All WebP Files"
+msgstr ""
+
+#: admin/views/dashboard.php:186
+msgid ".htaccess Rules Management"
+msgstr ""
+
+#: admin/views/dashboard.php:191
+msgid "Status:"
+msgstr ""
+
+#: admin/views/dashboard.php:196
+msgid "Add .htaccess Rules"
+msgstr ""
+
+#: admin/views/dashboard.php:200
+msgid "Remove .htaccess Rules"
+msgstr ""
+
+#: admin/views/dashboard.php:203
+msgid "Preview Rules"
+msgstr ""
+
+#: admin/views/dashboard.php:207
+msgid "Recommended .htaccess Rules:"
+msgstr ""
+
+#: admin/views/dashboard.php:209
+msgid "These rules automatically serve WebP images to browsers that support them while keeping the original URLs (e.g., image.jpg stays image.jpg but serves WebP content with proper Content-Type headers). The [L] flag ensures these rules take precedence."
+msgstr ""
+
+#: admin/views/dashboard.php:181
+msgid "This is a fallback option. .htaccess rules below provide better performance by serving WebP content while keeping original URLs and proper Content-Type headers."
+msgstr ""
+
+#: includes/class-image-optimization-core.php:329
+msgid "WebP rules present but may be outdated. Consider updating."
+msgstr ""
+
+#: includes/class-image-optimization-core.php:337
+msgid "WebP rules are present and properly configured in .htaccess"
+msgstr ""
+
+#: includes/class-image-optimization-core.php:299
+msgid ".htaccess file not found"
+msgstr ""
+
+#: includes/class-image-optimization-core.php:305
+msgid ".htaccess file exists but is not readable"
+msgstr ""
+
+#: includes/class-image-optimization-core.php:313
+msgid "Could not read .htaccess file"
+msgstr ""
+
+#: includes/class-image-optimization-core.php:322
+msgid "WebP rules are present in .htaccess"
+msgstr ""
+
+#: includes/class-image-optimization-core.php:329
+msgid "WebP rules are not present in .htaccess"
+msgstr ""
+
+#: includes/class-image-optimization-core.php:341
+msgid ".htaccess file is not writable"
+msgstr ""
+
+#: includes/class-image-optimization-core.php:351
+msgid "WebP rules already exist in .htaccess"
+msgstr ""
+
+#: includes/class-image-optimization-core.php:362
+msgid "WebP rules added to .htaccess successfully"
+msgstr ""
+
+#: includes/class-image-optimization-core.php:368
+msgid "Failed to write to .htaccess file"
+msgstr ""
+
+#: admin/views/dashboard.php:317
+msgid "Image Optimization Plugin"
+msgstr ""
+
+#: admin/views/dashboard.php:317
+msgid "Developed by"
+msgstr ""
+
+#: admin/views/dashboard.php:317
+msgid "from"
+msgstr ""
+
+#: admin/views/dashboard.php:318
+msgid "Comprehensive Digital Marketing solutions for SMEs since 2017 | 5,400+ customers served"
+msgstr ""
+
+#: admin/views/dashboard.php:22
+msgid "Why Use Local Image Convert?"
+msgstr ""
+
+#: admin/views/dashboard.php:23
+msgid "Most VPS and hosting environments already include Imagick or GD, which fully support converting PNG/JPG to WebP. That's why we built this plugin—to give you a faster and more efficient solution compared to relying on automatic optimizers."
+msgstr ""
+
+#: admin/views/dashboard.php:25
+msgid "Key Benefits"
+msgstr ""
+
+#: admin/views/dashboard.php:27
+msgid "Full Control"
+msgstr ""
+
+#: admin/views/dashboard.php:27
+msgid "Optimize images only when you want, no background tasks eating resources."
+msgstr ""
+
+#: admin/views/dashboard.php:28
+msgid "Zero Server Overload"
+msgstr ""
+
+#: admin/views/dashboard.php:28
+msgid "Manual conversion means no hidden processes slowing down your site."
+msgstr ""
+
+#: admin/views/dashboard.php:29
+msgid "Better Than Quotas"
+msgstr ""
+
+#: admin/views/dashboard.php:29
+msgid "Unlike LiteSpeed Cache or other cloud-based services, you don't need to wait for queues or worry about hitting daily limits."
+msgstr ""
+
+#: admin/views/dashboard.php:30
+msgid "Transparent Process"
+msgstr ""
+
+#: admin/views/dashboard.php:30
+msgid "Know exactly what's happening with clear conversion logs."
+msgstr ""
+
+#: admin/views/dashboard.php:31
+msgid "Reversible"
+msgstr ""
+
+#: admin/views/dashboard.php:31
+msgid "Easily remove all WebP files if you want to roll back."
+msgstr ""
+
+#: admin/views/dashboard.php:34
+msgid "In short, Local Image Convert is built for speed, control, and independence—perfect if you manage many images and don't want to waste time waiting for external services."
+msgstr ""
+
+#: admin/views/dashboard.php:38
+msgid "Getting Started – Simple 3-Step Process"
+msgstr ""
+
+#: admin/views/dashboard.php:39
+msgid "Follow these steps to optimize your images and improve your site's performance:"
+msgstr ""
+
+#: admin/views/dashboard.php:43
+msgid "Scan Your Images"
+msgstr ""
+
+#: admin/views/dashboard.php:44
+msgid "Click \"Start Local Optimization\" below to scan all your JPG/PNG images and see how many can be optimized."
+msgstr ""
+
+#: admin/views/dashboard.php:48
+msgid "Convert to WebP"
+msgstr ""
+
+#: admin/views/dashboard.php:49
+msgid "The system automatically converts your images to WebP format, saving 25-35% file size while maintaining quality."
+msgstr ""
+
+#: admin/views/dashboard.php:53
+msgid "Configure Serving"
+msgstr ""
+
+#: admin/views/dashboard.php:56
+msgid "LiteSpeed Cache Detected:"
+msgstr ""
+
+#: admin/views/dashboard.php:57
+msgid "Go to LiteSpeed Cache → Image Optimization and configure:"
+msgstr ""
+
+#: admin/views/dashboard.php:59
+msgid "Next-Gen Image Format: WebP"
+msgstr ""
+
+#: admin/views/dashboard.php:60
+msgid "WebP/AVIF For Extra srcset: ON"
+msgstr ""
+
+#: admin/views/dashboard.php:63
+msgid "No LiteSpeed Cache:"
+msgstr ""
+
+#: admin/views/dashboard.php:64
+msgid "Add .htaccess rules below to automatically serve WebP images to modern browsers."
+msgstr ""
+
+#: admin/views/dashboard.php:70
+msgid "Start Local Optimization"
+msgstr ""
+
+#: admin/views/dashboard.php:73
+msgid "This will scan your images and convert them to WebP format. Original images are preserved."
+msgstr ""
+
+#: admin/views/dashboard.php:78
+msgid "Optimization Status Dashboard"
+msgstr ""

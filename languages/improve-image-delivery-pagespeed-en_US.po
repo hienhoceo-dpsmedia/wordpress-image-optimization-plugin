@@ -1,0 +1,31 @@
+# English translation for Improve Image Delivery PageSpeed
+# Copyright (C) 2024 HỒ QUANG HIỂN
+# This file is distributed under the same license as the Improve Image Delivery PageSpeed plugin.
+# HỒ QUANG HIỂN <hello@dps.media>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Improve Image Delivery PageSpeed 1.0.0\n"
+"Report-Msgid-Bugs-To: https://dps.media/support/\n"
+"POT-Creation-Date: 2024-08-31 10:00+0000\n"
+"PO-Revision-Date: 2024-08-31 10:00+0000\n"
+"Last-Translator: HỒ QUANG HIỂN <hello@dps.media>\n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
+
+#: admin/views/dashboard.php:20
+msgid "Improve Image Delivery PageSpeed"
+msgstr "Improve Image Delivery PageSpeed"
+
+#: admin/views/dashboard.php:23
+msgid "🚀 Boost Your PageSpeed Insights Score & Core Web Vitals"
+msgstr "🚀 Boost Your PageSpeed Insights Score & Core Web Vitals"
+
+#: admin/views/dashboard.php:24
+msgid "Automatically convert your JPEG/PNG images to modern WebP/AVIF formats to reduce download time, improve perceived page load performance, and enhance your Largest Contentful Paint (LCP) scores for better Core Web Vitals."
+msgstr "Automatically convert your JPEG/PNG images to modern WebP/AVIF formats to reduce download time, improve perceived page load performance, and enhance your Largest Contentful Paint (LCP) scores for better Core Web Vitals."
