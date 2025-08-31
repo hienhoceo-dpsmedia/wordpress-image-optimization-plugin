@@ -3,7 +3,7 @@
  * Plugin Name: Improve Image Delivery PageSpeed
  * Plugin URI: https://dps.media/plugins/improve-image-delivery-pagespeed/
  * Description: Boost your PageSpeed Insights score and improve Core Web Vitals (LCP) by automatically converting JPEG/PNG images to modern WebP/AVIF formats. Reduces image download time and improves perceived page load performance.
- * Version: 1.0.9
+ * Version: 1.1.0
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: HỒ QUANG HIỂN
@@ -27,11 +27,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'IMAGE_OPTIMIZATION_VERSION', '1.0.9' );
+define( 'IMAGE_OPTIMIZATION_VERSION', '1.1.0' );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_FILE', __FILE__ );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'IMAGE_OPTIMIZATION_BASENAME', plugin_basename( __FILE__ ) );
+
+// Prevent class redeclaration during plugin updates
+if ( ! class_exists( 'Image_Optimization' ) ) :
 
 /**
  * Main plugin class
@@ -98,12 +101,29 @@ class Image_Optimization {
      * @since 1.0.0
      */
     private function load_dependencies() {
-        require_once IMAGE_OPTIMIZATION_PLUGIN_DIR . 'includes/class-image-optimization-core.php';
-        require_once IMAGE_OPTIMIZATION_PLUGIN_DIR . 'includes/class-image-optimization-converter.php';
-        require_once IMAGE_OPTIMIZATION_PLUGIN_DIR . 'includes/class-image-optimization-settings.php';
+        $required_files = array(
+            IMAGE_OPTIMIZATION_PLUGIN_DIR . 'includes/class-image-optimization-core.php',
+            IMAGE_OPTIMIZATION_PLUGIN_DIR . 'includes/class-image-optimization-converter.php',
+            IMAGE_OPTIMIZATION_PLUGIN_DIR . 'includes/class-image-optimization-settings.php',
+        );
         
+        // Add admin file if in admin area
         if ( is_admin() ) {
-            require_once IMAGE_OPTIMIZATION_PLUGIN_DIR . 'admin/class-image-optimization-admin.php';
+            $required_files[] = IMAGE_OPTIMIZATION_PLUGIN_DIR . 'admin/class-image-optimization-admin.php';
+        }
+        
+        // Load each file with error handling
+        foreach ( $required_files as $file ) {
+            if ( ! file_exists( $file ) ) {
+                wp_die(
+                    /* translators: %s: file path */
+                    sprintf( esc_html__( 'Required plugin file missing: %s', 'improve-image-delivery-pagespeed' ), esc_html( $file ) ),
+                    esc_html__( 'Plugin Error', 'improve-image-delivery-pagespeed' ),
+                    array( 'back_link' => true )
+                );
+            }
+            
+            require_once $file;
         }
     }
 
@@ -113,11 +133,16 @@ class Image_Optimization {
      * @since 1.0.0
      */
     public function init() {
-        // Initialize core functionality
-        Image_Optimization_Core::get_instance();
-        Image_Optimization_Settings::get_instance();
+        // Initialize core functionality only if classes are available
+        if ( class_exists( 'Image_Optimization_Core' ) ) {
+            Image_Optimization_Core::get_instance();
+        }
         
-        if ( is_admin() ) {
+        if ( class_exists( 'Image_Optimization_Settings' ) ) {
+            Image_Optimization_Settings::get_instance();
+        }
+        
+        if ( is_admin() && class_exists( 'Image_Optimization_Admin' ) ) {
             Image_Optimization_Admin::get_instance();
         }
     }
@@ -699,5 +724,21 @@ class Image_Optimization {
     }
 }
 
-// Initialize the plugin
-Image_Optimization::get_instance();
+endif; // End class_exists check
+
+// Initialize the plugin safely
+if ( ! function_exists( 'image_optimization_init_plugin' ) ) {
+    /**
+     * Initialize the plugin safely
+     * 
+     * @since 1.0.9
+     */
+    function image_optimization_init_plugin() {
+        if ( class_exists( 'Image_Optimization' ) ) {
+            Image_Optimization::get_instance();
+        }
+    }
+    
+    // Use plugins_loaded hook to ensure WordPress is fully initialized
+    add_action( 'plugins_loaded', 'image_optimization_init_plugin', 5 );
+}

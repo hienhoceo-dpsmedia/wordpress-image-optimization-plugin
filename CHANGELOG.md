@@ -5,6 +5,42 @@ All notable changes to the Improve Image Delivery PageSpeed plugin will be docum
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-08-31
+
+### 🔧 Critical Fixes
+- **Fixed plugin activation fatal errors during updates** - Resolved "Plugin could not be activated because it triggered a fatal error" issue
+- **Enhanced plugin update compatibility** - No longer requires manual removal of old versions before installing new ones
+- **Improved class loading with existence checks** - Prevents class redeclaration errors during WordPress plugin updates
+
+### 🚀 Performance Optimizations  
+- **Safer plugin initialization** - Uses WordPress `plugins_loaded` hook for better compatibility
+- **Enhanced dependency loading** - Better error handling and file existence validation
+- **Optimized memory usage** - More efficient Vietnamese translation loading system
+- **Reduced agent lag and performance issues** - Streamlined codebase for better IDE performance
+
+### 🛠️ Technical Improvements
+- Added comprehensive class existence checks to all core classes
+- Implemented safer plugin initialization patterns
+- Enhanced error handling for missing dependency files
+- Improved plugin update workflow compatibility
+- Better WordPress standards compliance
+
+### 📋 Developer Notes
+- This version resolves the critical update compatibility issues reported by users
+- All class files now include proper existence checks to prevent conflicts
+- Plugin initialization is now deferred to ensure WordPress is fully loaded
+- Enhanced error messages for better debugging experience
+
+### ⚡ Compatibility
+- WordPress: 5.0+
+- PHP: 7.4+
+- Tested with WordPress 6.6
+- Compatible with all major hosting environments
+
+---
+
+**This is a critical stability release that fixes plugin update issues. Users experiencing activation errors should upgrade immediately.**
+
 ## [1.0.0] - 2024-08-31
 
 ### Added

@@ -11,6 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+// Prevent class redeclaration during plugin updates
+if ( ! class_exists( 'Image_Optimization_Converter' ) ) :
+
 /**
  * Image converter class
  *
@@ -590,3 +593,5 @@ class Image_Optimization_Converter {
         }
     }
 }
+
+endif; // End class_exists check

@@ -5,13 +5,15 @@ Tags: pagespeed, core web vitals, webp, avif, image optimization, lcp, performan
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Boost PageSpeed Insights scores and Core Web Vitals by converting JPEG/PNG to WebP/AVIF. Reduces image download time and improves LCP performance.
+Boost PageSpeed Insights scores and Core Web Vitals by converting JPEG/PNG to WebP/AVIF. Fixed critical plugin update activation errors in v1.1.0.
 
 == Description ==
+
+🔧 **Critical Update v1.1.0**: Fixes plugin activation fatal errors during updates - no more manual removal required!
 
 🚀 **Improve Image Delivery PageSpeed** is specifically designed for website owners who want to optimize their PageSpeed Insights scores and improve Core Web Vitals performance. The plugin automatically converts your uploaded JPEG/PNG images into modern WebP/AVIF formats wherever supported, dramatically reducing download times and enhancing your Largest Contentful Paint (LCP) scores.
 
@@ -167,6 +169,14 @@ The plugin works best with LiteSpeed Cache and LiteSpeed's CDN. For other CDNs, 
 5. **Analytics View** - Detailed optimization statistics
 
 == Changelog ==
+
+= 1.1.0 - 2025-08-31 =
+* **CRITICAL FIX**: Resolved plugin activation fatal errors during updates
+* **ENHANCEMENT**: No longer requires manual removal of old versions before installing new ones  
+* **OPTIMIZATION**: Improved plugin update compatibility and WordPress standards compliance
+* **PERFORMANCE**: Enhanced class loading with existence checks to prevent conflicts
+* **STABILITY**: Safer plugin initialization using WordPress hooks for better compatibility
+* **DEVELOPER**: Added comprehensive error handling and dependency validation
 
 = 1.0.0 =
 * Initial release
