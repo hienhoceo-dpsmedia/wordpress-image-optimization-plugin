@@ -3,7 +3,7 @@
  * Plugin Name: Improve Image Delivery PageSpeed
  * Plugin URI: https://dps.media/plugins/improve-image-delivery-pagespeed/
  * Description: Boost your PageSpeed Insights score and improve Core Web Vitals (LCP) by automatically converting JPEG/PNG images to modern WebP/AVIF formats. Reduces image download time and improves perceived page load performance.
- * Version: 1.0.6
+ * Version: 1.0.7
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: HỒ QUANG HIỂN
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'IMAGE_OPTIMIZATION_VERSION', '1.0.6' );
+define( 'IMAGE_OPTIMIZATION_VERSION', '1.0.7' );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_FILE', __FILE__ );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'IMAGE_OPTIMIZATION_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -168,6 +168,7 @@ class Image_Optimization {
             'Improve Image Delivery PageSpeed' => 'Cải Thiện Tốc Độ Tải Hình Ảnh PageSpeed',
             'Boost Your PageSpeed Insights Score & Core Web Vitals' => 'Tăng Điểm PageSpeed Insights & Core Web Vitals',
             'Automatically convert your JPEG/PNG images to modern WebP/AVIF formats to reduce download time, improve perceived page load performance, and enhance your Largest Contentful Paint (LCP) scores for better Core Web Vitals.' => 'Tự động chuyển đổi hình ảnh JPEG/PNG sang định dạng WebP/AVIF hiện đại để giảm thời gian tải xuống, cải thiện hiệu suất tải trang cảm nhận và nâng cao điểm Largest Contentful Paint (LCP) cho Core Web Vitals tốt hơn.',
+            'Note: This plugin defaults to Vietnamese. To permanently change language, update your WordPress admin language in Settings → General.' => 'Lưu ý: Plugin này mặc định là tiếng Việt. Để thay đổi ngôn ngữ vĩnh viễn, cập nhật ngôn ngữ quản trị WordPress trong Cài đặt → Chung.',
             
             // Benefits section
             'PageSpeed Optimization Benefits' => 'Lợi Ích Tối Ưu PageSpeed',
@@ -182,6 +183,8 @@ class Image_Optimization {
             'SEO Benefits' => 'Lợi Ích SEO',
             'Better PageSpeed scores can improve your search engine rankings.' => 'Điểm PageSpeed tốt hơn có thể cải thiện thứ hạng công cụ tìm kiếm của bạn.',
             'Perfect for website owners who want to optimize their PageSpeed Insights scores and improve Core Web Vitals performance with complete control over image conversion.' => 'Hoàn hảo cho chủ sở hữu trang web muốn tối ưu hóa điểm PageSpeed Insights và cải thiện hiệu suất Core Web Vitals với quyền kiểm soát hoàn toàn việc chuyển đổi hình ảnh.',
+            'Language Support' => 'Hỗ Trợ Ngôn Ngữ',
+            'This plugin prioritizes Vietnamese language with English fallback.' => 'Plugin này ưu tiên tiếng Việt với tiếng Anh làm dự phòng.',
             
             // Quick steps section
             'Quick PageSpeed Optimization - 3 Steps' => 'Tối Ưu PageSpeed Nhanh - 3 Bước',
@@ -230,15 +233,66 @@ class Image_Optimization {
             'Optimize Original Images' => 'Tối Ưu Hình Ảnh Gốc',
             'Convert the original uploaded image files' => 'Chuyển đổi các file hình ảnh gốc đã tải lên',
             'Optimize Thumbnail Images' => 'Tối Ưu Hình Ảnh Thu Nhỏ',
+            'Convert automatically generated thumbnail versions' => 'Chuyển đổi các phiên bản thu nhỏ được tạo tự động',
             
-            // Language support messages
-            'Language Support' => 'Hỗ Trợ Ngôn Ngữ',
-            'This plugin prioritizes Vietnamese language with English fallback.' => 'Plugin này ưu tiên tiếng Việt với tiếng Anh làm dự phòng.',
-            'Note: This plugin defaults to Vietnamese. To permanently change language, update your WordPress admin language in Settings → General.' => 'Lưu ý: Plugin này mặc định là tiếng Việt. Để thay đổi ngôn ngữ vĩnh viễn, cập nhật ngôn ngữ quản trị WordPress trong Cài đặt → Chung.',
+            // Advanced settings
+            'Quality Settings' => 'Cài Đặt Chất Lượng',
+            'Conversion Quality' => 'Chất Lượng Chuyển Đổi',
+            'Higher quality means larger file sizes but better image appearance' => 'Chất lượng cao hơn có nghĩa là kích thước file lớn hơn nhưng hình ảnh đẹp hơn',
+            'Minimum Size Filters' => 'Bộ Lọc Kích Thước Tối Thiểu',
+            'Skip converting images smaller than these dimensions to avoid unnecessary processing' => 'Bỏ qua chuyển đổi hình ảnh nhỏ hơn các kích thước này để tránh xử lý không cần thiết',
+            'Minimum Width (pixels)' => 'Chiều Rộng Tối Thiểu (pixel)',
+            'Minimum Height (pixels)' => 'Chiều Cao Tối Thiểu (pixel)',
+            'Minimum File Size (KB)' => 'Kích Thước File Tối Thiểu (KB)',
+            
+            // WebP serving methods
+            'WebP Serving Method' => 'Phương Thức Phục Vụ WebP',
+            'Choose how WebP images are served to visitors' => 'Chọn cách phục vụ hình ảnh WebP cho khách truy cập',
+            'URL Replacement' => 'Thay Thế URL',
+            'Automatically replace image URLs with WebP versions when available' => 'Tự động thay thế URL hình ảnh bằng phiên bản WebP khi có sẵn',
+            '.htaccess Rules' => 'Quy Tắc .htaccess',
+            'Add server rules to automatically serve WebP to compatible browsers' => 'Thêm quy tắc máy chủ để tự động phục vụ WebP cho trình duyệt tương thích',
+            'LiteSpeed Cache Integration' => 'Tích Hợp LiteSpeed Cache',
+            'Use LiteSpeed Cache WebP replacement feature (recommended if available)' => 'Sử dụng tính năng thay thế WebP của LiteSpeed Cache (khuyên dùng nếu có)',
+            
+            // Optimization actions
+            'Start Image Scan' => 'Bắt Đầu Quét Hình Ảnh',
+            'Scan your media library to find images that can be optimized' => 'Quét thư viện media để tìm hình ảnh có thể được tối ưu hóa',
+            'Convert Selected Images' => 'Chuyển Đổi Hình Ảnh Đã Chọn',
+            'Convert scanned images to WebP/AVIF format' => 'Chuyển đổi hình ảnh đã quét sang định dạng WebP/AVIF',
+            'Apply Server Configuration' => 'Áp Dụng Cấu Hình Máy Chủ',
+            'Add .htaccess rules and configure serving methods' => 'Thêm quy tắc .htaccess và cấu hình phương thức phục vụ',
+            
+            // Status messages
+            'Scanning in progress...' => 'Đang quét...',
+            'Converting images...' => 'Đang chuyển đổi hình ảnh...',
+            'Applying configuration...' => 'Đang áp dụng cấu hình...',
+            'Optimization complete!' => 'Tối ưu hóa hoàn tất!',
+            'No images found for optimization' => 'Không tìm thấy hình ảnh nào để tối ưu hóa',
+            'Error during optimization' => 'Lỗi trong quá trình tối ưu hóa',
+            
+            // Format support messages
+            'Format Support Detection' => 'Phát Hiện Hỗ Trợ Định Dạng',
+            'WebP Support' => 'Hỗ Trợ WebP',
+            'AVIF Support' => 'Hỗ Trợ AVIF',
+            'Your server supports WebP conversion' => 'Máy chủ của bạn hỗ trợ chuyển đổi WebP',
+            'Your server supports AVIF conversion' => 'Máy chủ của bạn hỗ trợ chuyển đổi AVIF',
+            'WebP conversion not available on this server' => 'Chuyển đổi WebP không khả dụng trên máy chủ này',
+            'AVIF conversion not available on this server' => 'Chuyển đổi AVIF không khả dụng trên máy chủ này',
             
             // Error messages
             'Server does not support %s format conversion.' => 'Máy chủ không hỗ trợ chuyển đổi định dạng %s.',
             'Neither Imagick nor GD format support is available on this server.' => 'Không có hỗ trợ định dạng Imagick hoặc GD trên máy chủ này.',
+            'Image Optimization requires WordPress 5.0+ and PHP 7.4+' => 'Tối Ưu Hình Ảnh yêu cầu WordPress 5.0+ và PHP 7.4+',
+            'Plugin Activation Error' => 'Lỗi Kích Hoạt Plugin',
+            
+            // Admin interface
+            'Save Settings' => 'Lưu Cài Đặt',
+            'Reset to Defaults' => 'Đặt Lại Mặc Định',
+            'Export Report' => 'Xuất Báo Cáo',
+            'Clear All Optimized Images' => 'Xóa Tất Cả Hình Ảnh Đã Tối Ưu',
+            'Settings saved successfully' => 'Cài đặt đã được lưu thành công',
+            'Settings reset to default values' => 'Cài đặt đã được đặt lại về giá trị mặc định',
         );
         
         // Add filter to override translations immediately
