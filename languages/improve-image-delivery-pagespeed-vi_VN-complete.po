@@ -1,0 +1,535 @@
+# Complete Vietnamese translation for Improve Image Delivery PageSpeed
+# Copyright (C) 2024 HỒ QUANG HIỂN
+# This file is distributed under the same license as the Improve Image Delivery PageSpeed plugin.
+# HỒ QUANG HIỂN <hello@dps.media>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Improve Image Delivery PageSpeed 1.0.6\n"
+"Report-Msgid-Bugs-To: https://dps.media/support/\n"
+"POT-Creation-Date: 2024-08-31 10:00+0000\n"
+"PO-Revision-Date: 2024-08-31 12:00+0000\n"
+"Last-Translator: HỒ QUANG HIỂN <hello@dps.media>\n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0\n"
+
+# Main plugin name and headers
+msgid "Improve Image Delivery PageSpeed"
+msgstr "Cải Thiện Tốc Độ Tải Hình Ảnh PageSpeed"
+
+msgid "Language:"
+msgstr "Ngôn ngữ:"
+
+msgid "Boost Your PageSpeed Insights Score & Core Web Vitals"
+msgstr "Tăng Điểm PageSpeed Insights & Core Web Vitals"
+
+msgid "Automatically convert your JPEG/PNG images to modern WebP/AVIF formats to reduce download time, improve perceived page load performance, and enhance your Largest Contentful Paint (LCP) scores for better Core Web Vitals."
+msgstr "Tự động chuyển đổi hình ảnh JPEG/PNG sang định dạng WebP/AVIF hiện đại để giảm thời gian tải xuống, cải thiện hiệu suất tải trang cảm nhận và nâng cao điểm Largest Contentful Paint (LCP) cho Core Web Vitals tốt hơn."
+
+msgid "Note: This plugin defaults to Vietnamese. To permanently change language, update your WordPress admin language in Settings → General."
+msgstr "Lưu ý: Plugin này mặc định là tiếng Việt. Để thay đổi ngôn ngữ vĩnh viễn, cập nhật ngôn ngữ quản trị WordPress trong Cài đặt → Chung."
+
+# Benefits section
+msgid "PageSpeed Optimization Benefits"
+msgstr "Lợi Ích Tối Ưu PageSpeed"
+
+msgid "Improve LCP Score"
+msgstr "Cải Thiện Điểm LCP"
+
+msgid "Reduce image file sizes by 25-50% to speed up largest image loading times."
+msgstr "Giảm kích thước file hình ảnh 25-50% để tăng tốc thời gian tải hình ảnh lớn nhất."
+
+msgid "Faster Page Loads"
+msgstr "Tải Trang Nhanh Hơn"
+
+msgid "Smaller images mean faster download times and better user experience."
+msgstr "Hình ảnh nhỏ hơn có nghĩa là thời gian tải xuống nhanh hơn và trải nghiệm người dùng tốt hơn."
+
+msgid "Mobile Performance"
+msgstr "Hiệu Suất Mobile"
+
+msgid "Especially beneficial for mobile users with slower connections."
+msgstr "Đặc biệt có lợi cho người dùng di động với kết nối chậm hơn."
+
+msgid "No Server Overload"
+msgstr "Không Quá Tải Máy Chủ"
+
+msgid "Convert images on-demand without background processing that slows your site."
+msgstr "Chuyển đổi hình ảnh theo yêu cầu mà không có xử lý nền làm chậm trang web của bạn."
+
+msgid "SEO Benefits"
+msgstr "Lợi Ích SEO"
+
+msgid "Better PageSpeed scores can improve your search engine rankings."
+msgstr "Điểm PageSpeed tốt hơn có thể cải thiện thứ hạng công cụ tìm kiếm của bạn."
+
+msgid "Perfect for website owners who want to optimize their PageSpeed Insights scores and improve Core Web Vitals performance with complete control over image conversion."
+msgstr "Hoàn hảo cho chủ sở hữu trang web muốn tối ưu hóa điểm PageSpeed Insights và cải thiện hiệu suất Core Web Vitals với quyền kiểm soát hoàn toàn việc chuyển đổi hình ảnh."
+
+msgid "Language Support"
+msgstr "Hỗ Trợ Ngôn Ngữ"
+
+msgid "This plugin prioritizes Vietnamese language with English fallback."
+msgstr "Plugin này ưu tiên tiếng Việt với dự phòng tiếng Anh."
+
+# Quick steps section
+msgid "Quick PageSpeed Optimization - 3 Steps"
+msgstr "Tối Ưu PageSpeed Nhanh - 3 Bước"
+
+msgid "Follow these steps to boost your PageSpeed Insights score and improve Core Web Vitals:"
+msgstr "Thực hiện các bước này để tăng điểm PageSpeed Insights và cải thiện Core Web Vitals:"
+
+msgid "Scan for Optimization Opportunities"
+msgstr "Quét Tìm Cơ Hội Tối Ưu"
+
+msgid "Automatically finds all JPEG/PNG images that can be optimized to improve your PageSpeed score."
+msgstr "Tự động tìm tất cả hình ảnh JPEG/PNG có thể được tối ưu hóa để cải thiện điểm PageSpeed của bạn."
+
+msgid "Convert to Modern Formats"
+msgstr "Chuyển Đổi Sang Định Dạng Hiện Đại"
+
+msgid "Converts images to WebP/AVIF formats for faster loading, smaller file sizes, and better LCP scores."
+msgstr "Chuyển đổi hình ảnh sang định dạng WebP/AVIF để tải nhanh hơn, kích thước file nhỏ hơn và điểm LCP tốt hơn."
+
+msgid "Automatic Performance Setup"
+msgstr "Thiết Lập Hiệu Suất Tự Động"
+
+msgid "Automatically handles:"
+msgstr "Tự động xử lý:"
+
+msgid "Adds .htaccess rules if needed"
+msgstr "Thêm quy tắc .htaccess nếu cần"
+
+msgid "Shows LiteSpeed Cache settings"
+msgstr "Hiển thị cài đặt LiteSpeed Cache"
+
+msgid "Recommends turning off conflicting optimizations"
+msgstr "Khuyến nghị tắt các tối ưu hóa xung đột"
+
+# Main action buttons
+msgid "Start Complete Optimization"
+msgstr "Bắt Đầu Tối Ưu Hoàn Chỉnh"
+
+msgid "This will scan images, convert to WebP/AVIF formats, add .htaccess rules (if needed), and show LiteSpeed Cache recommendations. Original images are preserved."
+msgstr "Điều này sẽ quét hình ảnh, chuyển đổi sang định dạng WebP/AVIF, thêm quy tắc .htaccess (nếu cần) và hiển thị khuyến nghị LiteSpeed Cache. Hình ảnh gốc được bảo tồn."
+
+msgid "Truly One-Click:"
+msgstr "Thực Sự Một Cú Nhấp:"
+
+msgid "No manual configuration needed - perfect for beginners!"
+msgstr "Không cần cấu hình thủ công - hoàn hảo cho người mới bắt đầu!"
+
+# Dashboard section
+msgid "Optimization Status Dashboard"
+msgstr "Bảng Điều Khiển Trạng Thái Tối Ưu"
+
+msgid "View your current optimization progress and statistics"
+msgstr "Xem tiến trình tối ưu hóa hiện tại và thống kê của bạn"
+
+msgid "Optimization Status"
+msgstr "Trạng Thái Tối Ưu"
+
+msgid "Total Images"
+msgstr "Tổng Số Hình Ảnh"
+
+msgid "Optimized"
+msgstr "Đã Tối Ưu"
+
+msgid "Pending"
+msgstr "Đang Chờ"
+
+msgid "Space Saved"
+msgstr "Dung Lượng Tiết Kiệm"
+
+msgid "Storage Optimization"
+msgstr "Tối Ưu Lưu Trữ"
+
+msgid "Last optimized:"
+msgstr "Lần tối ưu cuối:"
+
+msgid "Format:"
+msgstr "Định dạng:"
+
+msgid "Original images:"
+msgstr "Hình ảnh gốc:"
+
+msgid "Thumbnail images:"
+msgstr "Hình ảnh thu nhỏ:"
+
+msgid "Enabled"
+msgstr "Đã Bật"
+
+msgid "Disabled"
+msgstr "Đã Tắt"
+
+msgid "Image Thumbnail Sizes"
+msgstr "Kích Thước Hình Ảnh Thu Nhỏ"
+
+msgid "Original"
+msgstr "Gốc"
+
+msgid "Ready"
+msgstr "Sẵn Sàng"
+
+msgid "No image sizes selected for optimization. Please enable at least one option in settings."
+msgstr "Không có kích thước hình ảnh nào được chọn để tối ưu hóa. Vui lòng bật ít nhất một tùy chọn trong cài đặt."
+
+# Settings section
+msgid "Optimization Settings"
+msgstr "Cài Đặt Tối Ưu"
+
+msgid "Configure which images to optimize and quality settings"
+msgstr "Cấu hình hình ảnh nào để tối ưu hóa và cài đặt chất lượng"
+
+msgid "Image Size Options"
+msgstr "Tùy Chọn Kích Thước Hình Ảnh"
+
+msgid "Choose which image sizes to convert. Original images are your uploaded files, thumbnails are automatically generated smaller versions."
+msgstr "Chọn kích thước hình ảnh nào để chuyển đổi. Hình ảnh gốc là các file bạn tải lên, thu nhỏ là các phiên bản nhỏ hơn được tạo tự động."
+
+msgid "Optimize Original Images"
+msgstr "Tối Ưu Hình Ảnh Gốc"
+
+msgid "Convert the original uploaded image files"
+msgstr "Chuyển đổi các file hình ảnh gốc đã tải lên"
+
+msgid "Optimize Thumbnail Images"
+msgstr "Tối Ưu Hình Ảnh Thu Nhỏ"
+
+msgid "Convert all thumbnail size variants (%1$d sizes: %2$s)"
+msgstr "Chuyển đổi tất cả biến thể kích thước thu nhỏ (%1$d kích thước: %2$s)"
+
+# Conversion settings
+msgid "Conversion Settings"
+msgstr "Cài Đặt Chuyển Đổi"
+
+msgid "Control quality and minimum size thresholds for conversion. Higher quality = larger files but better image quality."
+msgstr "Kiểm soát chất lượng và ngưỡng kích thước tối thiểu để chuyển đổi. Chất lượng cao hơn = file lớn hơn nhưng chất lượng hình ảnh tốt hơn."
+
+msgid "Conversion quality"
+msgstr "Chất lượng chuyển đổi"
+
+msgid "Recommended: 80. Higher values = better quality but larger files. Lower values = smaller files but reduced quality."
+msgstr "Khuyến nghị: 80. Giá trị cao hơn = chất lượng tốt hơn nhưng file lớn hơn. Giá trị thấp hơn = file nhỏ hơn nhưng chất lượng giảm."
+
+msgid "0–100, default 80"
+msgstr "0–100, mặc định 80"
+
+msgid "Min width (px)"
+msgstr "Chiều rộng tối thiểu (px)"
+
+msgid "Min height (px)"
+msgstr "Chiều cao tối thiểu (px)"
+
+msgid "Min file size (KB)"
+msgstr "Kích thước file tối thiểu (KB)"
+
+msgid "Force include small images"
+msgstr "Bắt buộc bao gồm hình ảnh nhỏ"
+
+msgid "Ignore thresholds when scanning/converting"
+msgstr "Bỏ qua ngưỡng khi quét/chuyển đổi"
+
+# Output format section
+msgid "Output Format Selection"
+msgstr "Lựa Chọn Định Dạng Đầu Ra"
+
+msgid "Choose which next-generation image formats to convert your images to. The selection depends on your server capabilities and browser support."
+msgstr "Chọn định dạng hình ảnh thế hệ mới nào để chuyển đổi hình ảnh của bạn. Lựa chọn phụ thuộc vào khả năng máy chủ và hỗ trợ trình duyệt."
+
+msgid "Server Conversion Capabilities"
+msgstr "Khả Năng Chuyển Đổi Máy Chủ"
+
+msgid "ImageMagick Extension"
+msgstr "Tiện Ích ImageMagick"
+
+msgid "Available"
+msgstr "Có Sẵn"
+
+msgid "Not Available"
+msgstr "Không Có Sẵn"
+
+msgid "WebP Support"
+msgstr "Hỗ Trợ WebP"
+
+msgid "AVIF Support"
+msgstr "Hỗ Trợ AVIF"
+
+msgid "GD Extension"
+msgstr "Tiện Ích GD"
+
+msgid "AVIF Support (Not Available in GD)"
+msgstr "Hỗ Trợ AVIF (Không Có Sẵn trong GD)"
+
+msgid "No Image Conversion Library Available!"
+msgstr "Không Có Thư Viện Chuyển Đổi Hình Ảnh Nào!"
+
+msgid "Neither ImageMagick nor GD extension is available on your server. Please contact your hosting provider to install one of these extensions."
+msgstr "Cả ImageMagick và tiện ích GD đều không có sẵn trên máy chủ của bạn. Vui lòng liên hệ nhà cung cấp hosting để cài đặt một trong những tiện ích này."
+
+msgid "Output Format"
+msgstr "Định Dạng Đầu Ra"
+
+msgid "Choose which modern image format(s) to convert your images to. AVIF provides better compression but requires ImageMagick with AVIF support."
+msgstr "Chọn định dạng hình ảnh hiện đại nào để chuyển đổi hình ảnh của bạn. AVIF cung cấp nén tốt hơn nhưng yêu cầu ImageMagick có hỗ trợ AVIF."
+
+msgid "WebP Only"
+msgstr "Chỉ WebP"
+
+msgid "Convert images to WebP format only. Best compatibility, supported by most modern browsers and servers."
+msgstr "Chuyển đổi hình ảnh chỉ sang định dạng WebP. Tương thích tốt nhất, được hỗ trợ bởi hầu hết trình duyệt và máy chủ hiện đại."
+
+msgid "AVIF Only"
+msgstr "Chỉ AVIF"
+
+msgid "Convert images to AVIF format only. Better compression than WebP but requires ImageMagick with AVIF support."
+msgstr "Chuyển đổi hình ảnh chỉ sang định dạng AVIF. Nén tốt hơn WebP nhưng yêu cầu ImageMagick có hỗ trợ AVIF."
+
+msgid "Requires ImageMagick with AVIF support. Contact your hosting provider."
+msgstr "Yêu cầu ImageMagick có hỗ trợ AVIF. Liên hệ nhà cung cấp hosting của bạn."
+
+msgid "Both WebP and AVIF"
+msgstr "Cả WebP và AVIF"
+
+msgid "Fully Available"
+msgstr "Hoàn Toàn Có Sẵn"
+
+msgid "WebP Only (AVIF not available)"
+msgstr "Chỉ WebP (AVIF không có sẵn)"
+
+msgid "Convert to both formats for maximum compatibility and performance. Browsers will automatically choose the best supported format."
+msgstr "Chuyển đổi sang cả hai định dạng để có tương thích và hiệu suất tối đa. Trình duyệt sẽ tự động chọn định dạng được hỗ trợ tốt nhất."
+
+msgid "Note: Only WebP will be generated since AVIF is not available on your server."
+msgstr "Lưu ý: Chỉ WebP sẽ được tạo vì AVIF không có sẵn trên máy chủ của bạn."
+
+# Serving options
+msgid "WebP/AVIF Serving Options"
+msgstr "Tùy Chọn Phục Vụ WebP/AVIF"
+
+msgid "LiteSpeed Cache Detected:"
+msgstr "Đã Phát Hiện LiteSpeed Cache:"
+
+msgid "You have multiple options to serve WebP/AVIF images. Choose the method that works best for your setup:"
+msgstr "Bạn có nhiều tùy chọn để phục vụ hình ảnh WebP/AVIF. Chọn phương pháp phù hợp nhất với thiết lập của bạn:"
+
+msgid "Option 1 (Recommended):"
+msgstr "Tùy Chọn 1 (Khuyến Nghị):"
+
+msgid "Use LiteSpeed Cache WebP replacement feature"
+msgstr "Sử dụng tính năng thay thế WebP của LiteSpeed Cache"
+
+msgid "Option 2:"
+msgstr "Tùy Chọn 2:"
+
+msgid "Use .htaccess rules below for direct server-level serving"
+msgstr "Sử dụng quy tắc .htaccess bên dưới để phục vụ trực tiếp ở cấp máy chủ"
+
+msgid "Option 3:"
+msgstr "Tùy Chọn 3:"
+
+msgid "Use URL replacement below for PHP-level serving"
+msgstr "Sử dụng thay thế URL bên dưới để phục vụ ở cấp PHP"
+
+msgid "No LiteSpeed Cache Detected:"
+msgstr "Không Phát Hiện LiteSpeed Cache:"
+
+msgid "Use the options below to serve WebP/AVIF images to your visitors:"
+msgstr "Sử dụng các tùy chọn bên dưới để phục vụ hình ảnh WebP/AVIF cho khách truy cập:"
+
+msgid "URL Replacement Method"
+msgstr "Phương Pháp Thay Thế URL"
+
+msgid "Enable URL Replacement"
+msgstr "Bật Thay Thế URL"
+
+msgid "Replace image URLs with WebP/AVIF versions in your site's HTML"
+msgstr "Thay thế URL hình ảnh bằng phiên bản WebP/AVIF trong HTML của trang web"
+
+msgid "This method works alongside LiteSpeed Cache. You can use this instead of or in addition to LiteSpeed's WebP replacement feature."
+msgstr "Phương pháp này hoạt động cùng với LiteSpeed Cache. Bạn có thể sử dụng thay vì hoặc bổ sung cho tính năng thay thế WebP của LiteSpeed."
+
+msgid "Note:"
+msgstr "Lưu ý:"
+
+msgid "If you prefer LiteSpeed's method, leave this unchecked and configure LiteSpeed Cache WebP replacement instead."
+msgstr "Nếu bạn thích phương pháp của LiteSpeed, hãy để tùy chọn này không được chọn và cấu hình thay thế WebP của LiteSpeed Cache thay vào đó."
+
+msgid "This option replaces image URLs in HTML output with WebP/AVIF versions when available. For better performance, consider using .htaccess rules below."
+msgstr "Tùy chọn này thay thế URL hình ảnh trong đầu ra HTML bằng phiên bản WebP/AVIF khi có sẵn. Để có hiệu suất tốt hơn, hãy xem xét sử dụng quy tắc .htaccess bên dưới."
+
+msgid ".htaccess rules below provide better performance by serving WebP content while keeping original URLs and proper Content-Type headers."
+msgstr "Quy tắc .htaccess bên dưới cung cấp hiệu suất tốt hơn bằng cách phục vụ nội dung WebP trong khi giữ URL gốc và header Content-Type phù hợp."
+
+msgid ".htaccess Rules Method"
+msgstr "Phương Pháp Quy Tắc .htaccess"
+
+msgid "Status:"
+msgstr "Trạng thái:"
+
+# Tools section
+msgid "Step-by-Step Process:"
+msgstr "Quy Trình Từng Bước:"
+
+msgid "Scan"
+msgstr "Quét"
+
+msgid "Scan Images"
+msgstr "Quét Hình Ảnh"
+
+msgid "Convert"
+msgstr "Chuyển Đổi"
+
+msgid "Convert Pending"
+msgstr "Chuyển Đổi Đang Chờ"
+
+msgid "Manage"
+msgstr "Quản Lý"
+
+msgid "Remove All WebP"
+msgstr "Xóa Tất Cả WebP"
+
+# Help section
+msgid "New User?"
+msgstr "Người Dùng Mới?"
+
+msgid "Just click the big \"Start Complete Optimization\" button above. It will handle everything automatically - scan, convert, add .htaccess rules, and show LiteSpeed Cache recommendations!"
+msgstr "Chỉ cần nhấp vào nút \"Bắt Đầu Tối Ưu Hoàn Chỉnh\" lớn ở trên. Nó sẽ xử lý mọi thứ tự động - quét, chuyển đổi, thêm quy tắc .htaccess và hiển thị khuyến nghị LiteSpeed Cache!"
+
+msgid "What are WebP/AVIF?"
+msgstr "WebP/AVIF là gì?"
+
+msgid "WebP and AVIF are modern image formats that reduce file sizes by 25-50% without losing quality. Faster loading = better SEO!"
+msgstr "WebP và AVIF là định dạng hình ảnh hiện đại giảm kích thước file 25-50% mà không mất chất lượng. Tải nhanh hơn = SEO tốt hơn!"
+
+msgid "Need Settings?"
+msgstr "Cần Cài Đặt?"
+
+msgid "Default settings work great for most sites. Only change if you know what you're doing."
+msgstr "Cài đặt mặc định hoạt động tốt cho hầu hết các trang web. Chỉ thay đổi nếu bạn biết mình đang làm gì."
+
+msgid "Is it Safe?"
+msgstr "Có An Toàn Không?"
+
+msgid "Yes! Your original images are never deleted. WebP/AVIF copies are created alongside them."
+msgstr "Có! Hình ảnh gốc của bạn không bao giờ bị xóa. Bản sao WebP/AVIF được tạo cùng với chúng."
+
+# Summary section
+msgid "Image Information"
+msgstr "Thông Tin Hình Ảnh"
+
+msgid "Total Images:"
+msgstr "Tổng Hình Ảnh:"
+
+msgid "Optimized:"
+msgstr "Đã Tối Ưu:"
+
+msgid "Pending:"
+msgstr "Đang Chờ:"
+
+msgid "Optimization Summary"
+msgstr "Tóm Tắt Tối Ưu"
+
+msgid "of"
+msgstr "trong"
+
+msgid "images optimized"
+msgstr "hình ảnh đã tối ưu"
+
+msgid "Space saved:"
+msgstr "Dung lượng tiết kiệm:"
+
+msgid "WebP/AVIF Serving Methods"
+msgstr "Phương Pháp Phục Vụ WebP/AVIF"
+
+msgid "LiteSpeed Cache detected! You have multiple options to serve WebP/AVIF images:"
+msgstr "Đã phát hiện LiteSpeed Cache! Bạn có nhiều tùy chọn để phục vụ hình ảnh WebP/AVIF:"
+
+msgid ".htaccess rules for server-level serving"
+msgstr "quy tắc .htaccess để phục vụ ở cấp máy chủ"
+
+msgid "URL replacement for PHP-level serving"
+msgstr "thay thế URL để phục vụ ở cấp PHP"
+
+msgid "No LiteSpeed Cache Detected:"
+msgstr "Không Phát Hiện LiteSpeed Cache:"
+
+msgid "Consider installing LiteSpeed Cache for better performance and caching."
+msgstr "Hãy xem xét cài đặt LiteSpeed Cache để có hiệu suất và bộ nhớ đệm tốt hơn."
+
+msgid "Use the WebP/AVIF serving options configured above:"
+msgstr "Sử dụng các tùy chọn phục vụ WebP/AVIF đã cấu hình ở trên:"
+
+msgid "Option 2: Use .htaccess rules (configured above)"
+msgstr "Tùy chọn 2: Sử dụng quy tắc .htaccess (đã cấu hình ở trên)"
+
+msgid "Option 3: Use URL replacement (configured above)"
+msgstr "Tùy chọn 3: Sử dụng thay thế URL (đã cấu hình ở trên)"
+
+msgid "Important:"
+msgstr "Quan Trọng:"
+
+msgid "Choose only one method to avoid conflicts. Most users prefer LiteSpeed's WebP replacement for better performance."
+msgstr "Chỉ chọn một phương pháp để tránh xung đột. Hầu hết người dùng thích thay thế WebP của LiteSpeed để có hiệu suất tốt hơn."
+
+# Footer section
+msgid "Developed by"
+msgstr "Được Phát Triển Bởi"
+
+msgid "from"
+msgstr "từ"
+
+msgid "Comprehensive Digital Marketing solutions for SMEs since 2017 | 5,400+ customers served"
+msgstr "Giải pháp Digital Marketing toàn diện cho doanh nghiệp vừa và nhỏ từ năm 2017 | Đã phục vụ 5.400+ khách hàng"
+
+msgid "Rate Plugin"
+msgstr "Đánh Giá Plugin"
+
+msgid "Support Development"
+msgstr "Hỗ Trợ Phát Triển"
+
+msgid "Get Support"
+msgstr "Nhận Hỗ Trợ"
+
+msgid "Optimization completed successfully! Consider rating this plugin to help other users discover it."
+msgstr "Tối ưu hóa hoàn thành thành công! Hãy xem xét đánh giá plugin này để giúp người dùng khác khám phá nó."
+
+msgid "Rate Now →"
+msgstr "Đánh Giá Ngay →"
+
+# Error messages and additional strings
+msgid "Server does not support %s format conversion."
+msgstr "Máy chủ không hỗ trợ chuyển đổi định dạng %s."
+
+msgid "Neither Imagick nor GD format support is available on this server."
+msgstr "Không có hỗ trợ định dạng Imagick hoặc GD trên máy chủ này."
+
+msgid "Invalid language selection"
+msgstr "Lựa chọn ngôn ngữ không hợp lệ"
+
+msgid "Language changed successfully"
+msgstr "Đã thay đổi ngôn ngữ thành công"
+
+msgid ", skipped %d file(s)"
+msgstr ", đã bỏ qua %d file"
+
+msgid ", %d error(s)"
+msgstr ", %d lỗi"
+
+msgid "Conversion failed with %d error(s)."
+msgstr "Chuyển đổi thất bại với %d lỗi."
+
+msgid "All %d file(s) were skipped (already converted or below thresholds)."
+msgstr "Tất cả %d file đã bị bỏ qua (đã chuyển đổi hoặc dưới ngưỡng)."
+
+# Settings save button
+msgid "Save Settings"
+msgstr "Lưu Cài Đặt"
+
+msgid "Settings saved successfully."
+msgstr "Đã lưu cài đặt thành công."
