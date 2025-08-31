@@ -6,6 +6,42 @@
         const nonces = imageOptimization.nonces;
         const strings = imageOptimization.strings;
         
+        // Language selector functionality
+        $('#plugin-language-selector').on('change', function() {
+            const selectedLocale = $(this).val();
+            const currentUrl = window.location.href;
+            
+            // Show a notice about language change
+            const notice = $('<div class="notice notice-info" style="margin: 10px 0; padding: 10px;"></div>');
+            if (selectedLocale === 'vi_VN') {
+                notice.html('<p>🌍 Switching to Vietnamese interface. Note: To permanently change your WordPress language, go to Settings → General → Site Language.</p>');
+            } else {
+                notice.html('<p>🌍 Switching to English interface. Note: To permanently change your WordPress language, go to Settings → General → Site Language.</p>');
+            }
+            
+            $('.image-optimization-language-selector').after(notice);
+            
+            // Store preference in localStorage
+            localStorage.setItem('imageOptimizationLanguage', selectedLocale);
+            
+            // Redirect to WordPress language settings for permanent change
+            setTimeout(function() {
+                const message = selectedLocale === 'vi_VN' 
+                    ? 'To permanently set Vietnamese as your WordPress language, please go to Settings → General and change "Site Language" to "Tiếng Việt".' 
+                    : 'To permanently set English as your WordPress language, please go to Settings → General and change "Site Language" to "English (United States)".';
+                    
+                if (confirm(message + '\n\nWould you like to go to the General Settings page now?')) {
+                    window.location.href = 'options-general.php';
+                }
+            }, 2000);
+        });
+        
+        // Set initial language selection based on current locale or stored preference
+        const storedLanguage = localStorage.getItem('imageOptimizationLanguage');
+        if (storedLanguage) {
+            $('#plugin-language-selector').val(storedLanguage);
+        }
+        
         // Main dashboard buttons
         const btnScanMain = $('#image-optimization-scan-main');
         

@@ -29,3 +29,15 @@ msgstr "🚀 Boost Your PageSpeed Insights Score & Core Web Vitals"
 #: admin/views/dashboard.php:24
 msgid "Automatically convert your JPEG/PNG images to modern WebP/AVIF formats to reduce download time, improve perceived page load performance, and enhance your Largest Contentful Paint (LCP) scores for better Core Web Vitals."
 msgstr "Automatically convert your JPEG/PNG images to modern WebP/AVIF formats to reduce download time, improve perceived page load performance, and enhance your Largest Contentful Paint (LCP) scores for better Core Web Vitals."
+
+msgid "Language:"
+msgstr "Language:"
+
+msgid "Note: This plugin defaults to Vietnamese. To permanently change language, update your WordPress admin language in Settings → General."
+msgstr "Note: This plugin defaults to Vietnamese. To permanently change language, update your WordPress admin language in Settings → General."
+
+msgid "Language Support"
+msgstr "Language Support"
+
+msgid "This plugin prioritizes Vietnamese language with English fallback."
+msgstr "This plugin prioritizes Vietnamese language with English fallback."

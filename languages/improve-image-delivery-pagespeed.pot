@@ -16,6 +16,18 @@ msgstr ""
 msgid "Image Optimization requires WordPress 5.0+ and PHP 7.4+"
 msgstr ""
 
+msgid "Language:"
+msgstr ""
+
+msgid "Note: This plugin defaults to Vietnamese. To permanently change language, update your WordPress admin language in Settings → General."
+msgstr ""
+
+msgid "Language Support"
+msgstr ""
+
+msgid "This plugin prioritizes Vietnamese language with English fallback."
+msgstr ""
+
 #: image-optimization.php:84
 msgid "Plugin Activation Error"
 msgstr ""

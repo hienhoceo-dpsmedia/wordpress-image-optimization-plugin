@@ -222,3 +222,15 @@ msgstr "Lỗi Kích Hoạt Plugin"
 
 msgid "Image Optimization requires WordPress 5.0+ and PHP 7.4+"
 msgstr "Tối Ưu Hình Ảnh yêu cầu WordPress 5.0+ và PHP 7.4+"
+
+msgid "Language:"
+msgstr "Ngôn ngữ:"
+
+msgid "Note: This plugin defaults to Vietnamese. To permanently change language, update your WordPress admin language in Settings → General."
+msgstr "Lưu ý: Plugin này mặc định là tiếng Việt. Để thay đổi ngôn ngữ vĩnh viễn, hãy cập nhật ngôn ngữ quản trị WordPress trong Cài đặt → Tổng quát."
+
+msgid "Language Support"
+msgstr "Hỗ trợ ngôn ngữ"
+
+msgid "This plugin prioritizes Vietnamese language with English fallback."
+msgstr "Plugin này ưu tiên tiếng Việt với hỗ trợ dự phòng tiếng Anh."

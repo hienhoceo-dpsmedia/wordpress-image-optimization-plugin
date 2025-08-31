@@ -20,6 +20,21 @@ $export_nonce = wp_create_nonce( $settings->get_nonce_action( 'export' ) );
 <div class="wrap">
     <h1><?php esc_html_e( 'Improve Image Delivery PageSpeed', 'improve-image-delivery-pagespeed' ); ?></h1>
     
+    <!-- Language Selector -->
+    <div class="image-optimization-language-selector" style="float: right; margin: -40px 0 20px 0;">
+        <label for="plugin-language-selector" style="font-size: 13px; color: #666;">
+            🌍 <?php esc_html_e( 'Language:', 'improve-image-delivery-pagespeed' ); ?>
+        </label>
+        <select id="plugin-language-selector" style="margin-left: 8px; font-size: 13px;">
+            <option value="vi_VN" <?php selected( get_locale(), 'vi_VN' ); ?>>🇻🇳 Tiếng Việt</option>
+            <option value="en_US" <?php selected( get_locale(), 'en_US' ); ?>>🇺🇸 English</option>
+        </select>
+        <p style="font-size: 12px; color: #888; margin: 4px 0 0; text-align: right;">
+            <?php esc_html_e( 'Note: This plugin defaults to Vietnamese. To permanently change language, update your WordPress admin language in Settings → General.', 'improve-image-delivery-pagespeed' ); ?>
+        </p>
+    </div>
+    <div style="clear: both;"></div>
+    
     <div class="image-optimization-info-banner">
         <h2>🚀 <?php esc_html_e( 'Boost Your PageSpeed Insights Score & Core Web Vitals', 'improve-image-delivery-pagespeed' ); ?></h2>
         <p><?php esc_html_e( 'Automatically convert your JPEG/PNG images to modern WebP/AVIF formats to reduce download time, improve perceived page load performance, and enhance your Largest Contentful Paint (LCP) scores for better Core Web Vitals.', 'improve-image-delivery-pagespeed' ); ?></p>
@@ -34,6 +49,11 @@ $export_nonce = wp_create_nonce( $settings->get_nonce_action( 'export' ) );
         </ul>
         
         <p><em>💡 <?php esc_html_e( 'Perfect for website owners who want to optimize their PageSpeed Insights scores and improve Core Web Vitals performance with complete control over image conversion.', 'improve-image-delivery-pagespeed' ); ?></em></p>
+        
+        <!-- Language Information -->
+        <div style="margin-top: 16px; padding: 12px; background: #e8f4fd; border-radius: 6px; font-size: 13px; color: #004085;">
+            🌍 <strong><?php esc_html_e( 'Language Support', 'improve-image-delivery-pagespeed' ); ?>:</strong> <?php esc_html_e( 'This plugin prioritizes Vietnamese language with English fallback.', 'improve-image-delivery-pagespeed' ); ?>
+        </div>
     </div>
     
     <!-- Getting Started Section -->
