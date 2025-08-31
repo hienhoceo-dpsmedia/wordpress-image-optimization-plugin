@@ -14,9 +14,16 @@ on:
         required: true
         default: '1.0.0'
 
+permissions:
+  contents: write
+  actions: read
+
 jobs:
   create-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
     
     steps:
     - name: Checkout code
@@ -46,12 +53,12 @@ jobs:
         
     - name: Create GitHub Release
       id: create_release
-      uses: actions/create-release@v1
+      uses: softprops/action-gh-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: v${{ steps.get_version.outputs.version }}
-        release_name: WordPress Image Optimization Plugin v${{ steps.get_version.outputs.version }}
+        name: WordPress Image Optimization Plugin v${{ steps.get_version.outputs.version }}
         body: |
           ## 🚀 WordPress Image Optimization Plugin v${{ steps.get_version.outputs.version }}
           
@@ -84,43 +91,8 @@ jobs:
           - **Website**: [dps.media](https://dps.media)
         draft: false
         prerelease: false
-        
-    - name: Upload WordPress.org Package
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./releases/wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-wordpress-org.zip
-        asset_name: wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-wordpress-org.zip
-        asset_content_type: application/zip
-        
-    - name: Upload GitHub Release Package
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./releases/wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-github-release.zip
-        asset_name: wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-github-release.zip
-        asset_content_type: application/zip
-        
-    - name: Upload Development Package
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./releases/wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-development.zip
-        asset_name: wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-development.zip
-        asset_content_type: application/zip
-        
-    - name: Upload Package Information
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./releases/package-info-v${{ steps.get_version.outputs.version }}.json
-        asset_name: package-info-v${{ steps.get_version.outputs.version }}.json
-        asset_content_type: application/json
+        files: |
+          ./releases/wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-wordpress-org.zip
+          ./releases/wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-github-release.zip
+          ./releases/wordpress-image-optimization-plugin-v${{ steps.get_version.outputs.version }}-development.zip
+          ./releases/package-info-v${{ steps.get_version.outputs.version }}.json
