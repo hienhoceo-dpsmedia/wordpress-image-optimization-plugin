@@ -1,0 +1,48 @@
+{
+  "name": "wordpress-image-optimization-plugin",
+  "version": "1.0.3",
+  "description": "WordPress Image Optimization Plugin - Convert JPEG/PNG to WebP/AVIF formats for better PageSpeed Insights and Core Web Vitals. Vietnamese language support with manual control.",
+  "author": {
+    "name": "HỒ QUANG HIỂN",
+    "email": "hello@dps.media",
+    "url": "https://dps.media"
+  },
+  "license": "GPL-2.0+",
+  "repository": "git+https://github.com/hienhoceo-dpsmedia/wordpress-image-optimization-plugin.git",
+  "homepage": "https://github.com/hienhoceo-dpsmedia/wordpress-image-optimization-plugin#readme",
+  "created": "2025-08-31T06:42:58.950Z",
+  "packages": [
+    {
+      "name": "wordpress-image-optimization-plugin-v1.0.3-wordpress-org.zip",
+      "type": "WordPress.org Submission",
+      "description": "Clean package for WordPress.org plugin directory submission"
+    },
+    {
+      "name": "wordpress-image-optimization-plugin-v1.0.3-github-release.zip",
+      "type": "GitHub Release",
+      "description": "Complete package for GitHub releases with documentation"
+    },
+    {
+      "name": "wordpress-image-optimization-plugin-v1.0.3-development.zip",
+      "type": "Development Package",
+      "description": "Full source code package for developers"
+    }
+  ],
+  "features": [
+    "Manual Image Optimization",
+    "WebP/AVIF Conversion",
+    "Vietnamese Language Priority",
+    "Real-time Progress Tracking",
+    "LiteSpeed Cache Integration",
+    "No Server Overload",
+    "Original Image Preservation"
+  ],
+  "system_requirements": {
+    "wordpress": "5.0+",
+    "php": "7.4+",
+    "extensions": [
+      "Imagick or GD"
+    ],
+    "memory": "128MB+ recommended"
+  }
+}
